@@ -8,7 +8,8 @@ namespaced cleanly.
 
 | Skill | Use it for |
 | --- | --- |
-| **design-workflow** | Any UI/design work — building, editing, or syncing screens/components in Figma, mirroring production into designs (production → design), or building/extending a design system. Enforces reuse of the existing design system, a structure audit (auto-layout + semantic naming), capturing production via Chrome MCP, native-resolution visual cross-check, and design-system naming conventions. |
+| **design-workflow** | Building, editing, or syncing UI screens/components in Figma, or mirroring production into designs (production → design). Structure audit (auto-layout + semantic naming), capturing production via Chrome MCP, native-resolution visual cross-check, and verifying designs match production. |
+| **design-system-conventions** | Building or extending a design system, or naming/structuring tokens, variables, components, or layers (in Figma or in code). The reuse-first rule and the naming schemes for tokens, components, and layers. |
 
 ## Install
 
