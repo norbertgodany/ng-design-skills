@@ -15,9 +15,11 @@ follow `design-system-conventions`** for the full reuse rule and naming schemes.
 default to multiples of **8** (4 is the allowed half-step for tight spacing). It keeps whitespace
 and dimensions legible and consistent. Wherever possible, drive gap / margin / padding from the
 design system's **spacing variables/tokens** (e.g. `spacing.md`) rather than raw numbers — so
-they stay bound and themeable. Parity overrides the grid: when mirroring a screen that uses an
-off-grid value, match production exactly — the grid governs *new* decisions, not faithful
-replication.
+they stay bound and themeable. The 8px grid is the standard, not a suggestion: if a production
+screen uses an off-grid spacing value, treat it as a **likely development bug** — flag it and
+propose the on-grid value rather than silently replicating the defect into the design. (Genuine
+exceptions that are *not* grid violations: hairline borders/dividers, icon & glyph sizes, type
+line-heights, platform safe-area insets, and brand-mandated values.)
 
 **Set a goal up front.** When moving production → designs, open a session goal (`/goal`) with
 the condition that *the Figma frames look identical to production and the rechecks pass*, so the

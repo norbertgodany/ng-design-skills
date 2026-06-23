@@ -1,7 +1,7 @@
 {
   "name": "design-skills",
   "description": "Claude Code skills for design work: design-system reuse, Figma build/sync, and production-fidelity verification.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": { "name": "Norbert Godany", "email": "norbert.godany@gmail.com" },
   "homepage": "https://github.com/norbertgodany/ng-design-skills",
   "repository": "https://github.com/norbertgodany/ng-design-skills",
