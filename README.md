@@ -6,10 +6,15 @@ namespaced cleanly.
 
 ## Skills
 
+The three skills are layered: **`design-system-conventions`** is the shared foundation (reuse +
+naming rules); **`design-generation`** (invent new) and **`design-parity`** (replicate existing)
+are the two workflows that stand on it.
+
 | Skill | Use it for |
 | --- | --- |
-| **design-workflow** | Building, editing, or syncing UI screens/components in Figma, or mirroring production into designs (production → design). Structure audit (auto-layout + semantic naming), capturing production via Chrome MCP, native-resolution visual cross-check, and verifying designs match production. |
-| **design-system-conventions** | Building or extending a design system, or naming/structuring tokens, variables, components, or layers (in Figma or in code). The reuse-first rule and the naming schemes for tokens, components, and layers. |
+| **design-generation** | Creating **new** screens, flows, features, or variations in Figma for a product that already has a design system — generative, on-brand design that reuses existing components and interaction patterns. (Greenfield-from-scratch → `frontend-design`; replicating an existing screen → `design-parity`.) |
+| **design-parity** | Mirroring/syncing an **existing/shipped** production screen into Figma 1:1 (production → design). Structure audit (auto-layout + semantic naming), 8px-grid spacing, capturing production via Chrome MCP, native-resolution visual cross-check. |
+| **design-system-conventions** | Building or extending a design system, or naming/structuring tokens, variables, components, or layers (in Figma or in code). The reuse-first rule and the naming schemes for tokens, components, and layers. Foundation for the other two. |
 
 ## Install
 
@@ -19,8 +24,8 @@ namespaced cleanly.
 ```
 
 Once installed, the skills load on demand and appear namespaced, e.g.
-`design-skills:design-workflow`. Claude invokes them automatically when a task matches a
-skill's description; you can also invoke one explicitly with `/design-skills:design-workflow`.
+`design-skills:design-generation`. Claude invokes them automatically when a task matches a
+skill's description; you can also invoke one explicitly with `/design-skills:design-generation`.
 
 ## Adding a new skill
 
@@ -37,7 +42,11 @@ skill's description; you can also invoke one explicitly with `/design-skills:des
   plugin.json        # plugin manifest
   marketplace.json   # marketplace listing this plugin (source ".")
 skills/
-  design-workflow/
+  design-generation/
+    SKILL.md
+  design-parity/
+    SKILL.md
+  design-system-conventions/
     SKILL.md
 ```
 

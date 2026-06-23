@@ -1,11 +1,11 @@
 ---
-name: design-workflow
-description: Use when building, editing, or syncing UI screens or components in Figma, or mirroring production into Figma designs (production → design). Covers structure audit (auto-layout + semantic naming), capturing production via Chrome MCP, native-resolution visual cross-check, and verifying designs match production exactly.
+name: design-parity
+description: Use when mirroring or syncing an existing/shipped production screen or component into Figma (production → design) — replicating what already exists so the design matches it 1:1. For inventing NEW screens or variations use design-generation; for token/component naming use design-system-conventions.
 ---
 
-# Design workflow
+# Design parity
 
-**When building or syncing UI in Figma, match production exactly — verify, don't assume.**
+**When syncing production into Figma, match it exactly — verify, don't assume.**
 
 **Reuse the design system.** Compose from the file's existing components, variables, and
 text-styles — never redraw what already exists, never hardcode what has a token. **REQUIRED:
@@ -18,11 +18,13 @@ intentional only when 4 is visibly too much (a dense badge, a tiny chevron, an o
 Never go below 2 except true sub-pixel cases (hairlines). It keeps whitespace and dimensions
 legible and consistent. Wherever possible, drive gap / margin / padding from the design system's
 **spacing variables/tokens** (e.g. `spacing.md`) rather than raw numbers — so they stay bound and
-themeable; if a 2px step isn't in the scale, add a token (e.g. `xxs`) instead of hardcoding `2`. The 8px grid is the standard, not a suggestion: if a production
-screen uses an off-grid spacing value, treat it as a **likely development bug** — flag it and
-propose the on-grid value rather than silently replicating the defect into the design. (Genuine
-exceptions that are *not* grid violations: hairline borders/dividers, icon & glyph sizes, type
-line-heights, platform safe-area insets, and brand-mandated values.)
+themeable; if a 2px step isn't in the scale, add a token (e.g. `xxs`) instead of hardcoding `2`.
+
+The 8px grid is the standard, not a suggestion: if a production screen uses an off-grid spacing
+value, treat it as a **likely development bug** — flag it and propose the on-grid value rather
+than silently replicating the defect into the design. (Genuine exceptions that are *not* grid
+violations: hairline borders/dividers, icon & glyph sizes, type line-heights, platform
+safe-area insets, and brand-mandated values.)
 
 **Set a goal up front.** When moving production → designs, open a session goal (`/goal`) with
 the condition that *the Figma frames look identical to production and the rechecks pass*, so the
