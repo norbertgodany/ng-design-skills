@@ -1,0 +1,14 @@
+{
+  "name": "ng-design-skills",
+  "description": "Norbert's design-focused Claude Code skills.",
+  "owner": { "name": "Norbert Godany", "email": "norbert.godany@gmail.com" },
+  "plugins": [
+    {
+      "name": "design-skills",
+      "description": "Claude Code skills for design work: design-system reuse, Figma build/sync, and production-fidelity verification.",
+      "version": "0.1.0",
+      "source": "./",
+      "author": { "name": "Norbert Godany", "email": "norbert.godany@gmail.com" }
+    }
+  ]
+}
