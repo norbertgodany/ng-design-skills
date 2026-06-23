@@ -37,3 +37,13 @@ The completion checklist every screen must pass — whether built by `creative-d
 - [ ] On desktop (1024+), max content width is capped; body line length ≤ ~75ch.
 - [ ] Landscape accounted for on 375/768.
 - [ ] Touch targets ≥ 44×44 on mobile; hover/precision affordances only from 1024+.
+
+## Figma rendering (effects & frames)
+A Figma frame (and auto-layout frame) **clips its children by default** — anything past the frame
+edge is cut off. This silently swallows effects that are *supposed* to bleed outward.
+- [ ] **Outward effects render in full** — wherever a child has a **drop shadow, outer glow, layer
+      blur, or any element that extends past the frame edge**, turn **OFF "Clip content"** on the
+      enclosing frame (`clipsContent = false`) so the effect shows instead of being clipped. Set
+      this when you build the frame, not only at review.
+- [ ] **Clipping stays ON where you actually want a mask** — image crops, rounded-corner content,
+      and scroll/overflow regions. Off is for outward effects; on is for intentional masks.
