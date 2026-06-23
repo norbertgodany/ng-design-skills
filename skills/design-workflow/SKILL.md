@@ -11,6 +11,14 @@ description: Use when building, editing, or syncing UI screens or components in 
 text-styles — never redraw what already exists, never hardcode what has a token. **REQUIRED:
 follow `design-system-conventions`** for the full reuse rule and naming schemes.
 
+**Stay on the 8px grid; use spacing variables.** For height, width, gap, margin, and padding,
+default to multiples of **8** (4 is the allowed half-step for tight spacing). It keeps whitespace
+and dimensions legible and consistent. Wherever possible, drive gap / margin / padding from the
+design system's **spacing variables/tokens** (e.g. `spacing.md`) rather than raw numbers — so
+they stay bound and themeable. Parity overrides the grid: when mirroring a screen that uses an
+off-grid value, match production exactly — the grid governs *new* decisions, not faithful
+replication.
+
 **Set a goal up front.** When moving production → designs, open a session goal (`/goal`) with
 the condition that *the Figma frames look identical to production and the rechecks pass*, so the
 harness blocks stopping until the visual cross-check actually succeeds — not just until edits
