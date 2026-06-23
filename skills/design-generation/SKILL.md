@@ -1,6 +1,6 @@
 ---
 name: design-generation
-description: Use when creating NEW screens, flows, features, or variations in Figma for a product that already has a design system — generative, on-brand design that reuses existing components and interaction patterns. NOT for greenfield from scratch (use frontend-design) or replicating an existing screen 1:1 (use design-parity).
+description: Use when creating NEW screens, flows, features, or variations in Figma for a product that ALREADY has a design system — generative, on-brand design that reuses existing components and interaction patterns. If NO design system exists yet (blank canvas, establishing the look) use creative-direction; to replicate an existing screen 1:1 use design-parity.
 ---
 
 # Design generation
