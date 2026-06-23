@@ -12,10 +12,13 @@ text-styles — never redraw what already exists, never hardcode what has a toke
 follow `design-system-conventions`** for the full reuse rule and naming schemes.
 
 **Stay on the 8px grid; use spacing variables.** For height, width, gap, margin, and padding,
-default to multiples of **8** (4 is the allowed half-step for tight spacing). It keeps whitespace
-and dimensions legible and consistent. Wherever possible, drive gap / margin / padding from the
-design system's **spacing variables/tokens** (e.g. `spacing.md`) rather than raw numbers — so
-they stay bound and themeable. The 8px grid is the standard, not a suggestion: if a production
+work down a tight step ladder: **8 = default** rhythm (layout, section gaps, padding) → **4 =
+tight** spacing inside a component (icon↔label, label↔caption) → **2 = micro**, rare and
+intentional only when 4 is visibly too much (a dense badge, a tiny chevron, an optical nudge).
+Never go below 2 except true sub-pixel cases (hairlines). It keeps whitespace and dimensions
+legible and consistent. Wherever possible, drive gap / margin / padding from the design system's
+**spacing variables/tokens** (e.g. `spacing.md`) rather than raw numbers — so they stay bound and
+themeable; if a 2px step isn't in the scale, add a token (e.g. `xxs`) instead of hardcoding `2`. The 8px grid is the standard, not a suggestion: if a production
 screen uses an off-grid spacing value, treat it as a **likely development bug** — flag it and
 propose the on-grid value rather than silently replicating the defect into the design. (Genuine
 exceptions that are *not* grid violations: hairline borders/dividers, icon & glyph sizes, type
