@@ -16,7 +16,11 @@ existing production).
 | **creative-direction** | **Greenfield** — no design system yet. Establish a brand-new visual direction in Figma (type, color, atmosphere) and lay the foundation. Brief-first, taste dials, anti-slop, principles; delegates the build to `figma-generate-library` / `figma-generate-design`. (A system already exists → `design-generation`.) |
 | **design-generation** | **Brownfield** — a design system already exists. Create new on-brand screens/variations that reuse existing components and interaction patterns. (No system yet → `creative-direction`; replicating an existing screen → `design-parity`.) |
 | **design-parity** | Mirroring/syncing an **existing/shipped** production screen into Figma 1:1 (production → design). Structure audit (auto-layout + semantic naming), 8px-grid spacing, capturing production via Chrome MCP, native-resolution visual cross-check. |
-| **design-system-conventions** | Building or extending a design system, or naming/structuring tokens, variables, components, or layers (in Figma or in code). The reuse-first rule and the naming schemes. Foundation for the other three. |
+| **design-system-conventions** | The shared **foundation** for the other three. Reuse-first rule, naming schemes, token tiering, the spacing (8px) + type scales, and the shared **quality gate** (`qa.md` — accessibility, states, forms, responsive). |
+
+**Load `design-system-conventions` alongside any of the other three** — they reference it for the
+scales and the quality gate. (Foundation → `creative-direction` / `design-generation` /
+`design-parity` all stand on it.)
 
 *`creative-direction` is original work, drawing inspiration from `frontend-design`, `taste-skill`, and `design-taste`.*
 
@@ -49,13 +53,15 @@ skills/
   creative-direction/
     SKILL.md
     anti-slop.md
-    pre-flight.md
+    color.md
+    typography.md
   design-generation/
     SKILL.md
   design-parity/
     SKILL.md
   design-system-conventions/
     SKILL.md
+    qa.md
 ```
 
 ## License

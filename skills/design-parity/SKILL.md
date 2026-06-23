@@ -11,20 +11,13 @@ description: Use when mirroring or syncing an existing/shipped production screen
 text-styles — never redraw what already exists, never hardcode what has a token. **REQUIRED:
 follow `design-system-conventions`** for the full reuse rule and naming schemes.
 
-**Stay on the 8px grid; use spacing variables.** For height, width, gap, margin, and padding,
-work down a tight step ladder: **8 = default** rhythm (layout, section gaps, padding) → **4 =
-tight** spacing inside a component (icon↔label, label↔caption) → **2 = micro**, rare and
-intentional only when 4 is visibly too much (a dense badge, a tiny chevron, an optical nudge).
-Never go below 2 except true sub-pixel cases (hairlines). It keeps whitespace and dimensions
-legible and consistent. Wherever possible, drive gap / margin / padding from the design system's
-**spacing variables/tokens** (e.g. `spacing.md`) rather than raw numbers — so they stay bound and
-themeable; if a 2px step isn't in the scale, add a token (e.g. `xxs`) instead of hardcoding `2`.
-
-The 8px grid is the standard, not a suggestion: if a production screen uses an off-grid spacing
-value, treat it as a **likely development bug** — flag it and propose the on-grid value rather
-than silently replicating the defect into the design. (Genuine exceptions that are *not* grid
-violations: hairline borders/dividers, icon & glyph sizes, type line-heights, platform
-safe-area insets, and brand-mandated values.)
+**Spacing & the 8px grid.** Follow the spacing scale + 8px ladder in `design-system-conventions`.
+Parity-specific rule: if a production screen uses an **off-grid spacing value**, treat it as a
+*likely development bug* — flag it and propose the on-grid value rather than replicating the
+defect. **The same flag-don't-replicate logic applies to accessibility defects:** if production
+ships insufficient contrast, a missing focus state, or color-only signals, flag it and propose the
+corrected value — match the *intent*, not the bug. (Genuine non-violations: hairline
+borders/dividers, icon & glyph sizes, type line-heights, safe-area insets, brand-mandated values.)
 
 **Set a goal up front.** When moving production → designs, open a session goal (`/goal`) with
 the condition that *the Figma frames look identical to production and the rechecks pass*, so the
@@ -49,6 +42,8 @@ Then work in this order:
    color, font family/size/weight (text-style), text content, alignment, and order. Never
    judge from a thumbnail.
 5. **Loop until visually indistinguishable.** That is the success criterion.
+6. **Run the quality gate.** Apply the accessibility items of `design-system-conventions/qa.md`;
+   flag (don't replicate) any production a11y defects per the rule above.
 
 **Be honest about verification.** When the product has a tokenized design system in code (e.g. a
 `tokens.ts`), those values are the authoritative spec and the screenshot confirms the render. If

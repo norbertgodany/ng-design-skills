@@ -10,13 +10,13 @@ sentence in the product, not a different book.**
 
 ## This skill stands on `design-system-conventions` — load it too
 
-`design-generation` is the *creative workflow*; **`design-system-conventions` is its
-foundation and is REQUIRED alongside it.** It does NOT restate the reuse rule or the
-token/component/layer naming schemes — those live in `design-system-conventions`, and every
-generation decision must obey them. Also pull in **`design-parity`** for the shared build
-mechanics (auto-layout, the 8px-grid spacing ladder, token/text-style binding,
-native-resolution review). Generation = `design-system-conventions` (rules) +
-`design-parity` (mechanics) + the creative process below.
+`design-generation` is the *creative workflow*; **`design-system-conventions` is its foundation
+and is REQUIRED alongside it** — it owns the reuse rule, naming schemes, the spacing (8px) and
+type scales, token tiering, and the shared **quality gate (`qa.md`)**; every generation decision
+must obey them. Delegate the Figma build to **`figma-generate-design`** (assemble screens from the
+existing system) and **`figma-use`** (Plugin API mechanics). Generation =
+`design-system-conventions` (rules + scales + gate) + `figma-generate-design` / `figma-use`
+(build) + the creative process below.
 
 ## Reuse first — components AND patterns
 
@@ -46,10 +46,14 @@ unavoidable.** When you must: build it on-brand following `design-system-convent
 2. **Inventory the system.** Find the components, patterns, and tokens that already solve parts
    of the problem, and reuse them.
 3. **Compose.** Assemble the new layout from those — on the 8px grid, with auto-layout and bound
-   tokens/text-styles (see `design-parity`).
+   tokens/text-styles (see `design-system-conventions`).
 4. **Extend only when unavoidable** (high bar above), on-brand and flagged.
-5. **Pressure-test against the principles** — hierarchy and simplicity first, then familiarity,
+5. **Cover the states.** For each data-loading surface, design the empty, error, loading, and
+   disabled variants — not just the filled state.
+6. **Pressure-test against the principles** — hierarchy and simplicity first, then familiarity,
    craft, and delight. Cut anything that doesn't earn its place.
-6. **Offer variations** when exploring, so trade-offs are visible.
+7. **Offer variations** when exploring, so trade-offs are visible.
+8. **Run the quality gate** — pass `design-system-conventions/qa.md` (a11y, states, forms,
+   responsive) before done.
 
 The test: a teammate can't tell it's new — it looks like it was always part of the product.

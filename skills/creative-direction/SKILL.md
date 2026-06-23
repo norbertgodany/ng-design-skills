@@ -12,43 +12,50 @@ data; this skill exists to make a bold, coherent choice and execute it with care
 ## This skill owns judgment — it delegates the building
 
 `creative-direction` decides the **what and why** (the direction); other skills build the **how**:
+- **`design-system-conventions`** — the foundation: reuse rule, naming, the spacing (8px) and
+  type scales, token tiering, and the shared **quality gate (`qa.md`)**. REQUIRED.
 - **`figma-generate-library`** — lay the foundation (variables/tokens, text & effect styles) and
   build components. Greenfield = empty file, so this comes FIRST.
 - **`figma-generate-design`** — assemble the screens from that foundation.
 - **`figma-use`** — the Plugin API mechanics (mandatory for every `use_figma` call).
-- **`design-system-conventions`** — naming schemes + the 8px-grid spacing rules for everything
-  you create.
 
 Do not reimplement those mechanics here. This skill is the creative layer on top of them.
 
 ## Step 0 — Read the brief first
 
 Before designing, state a **one-line design direction**: who it's for, what it's for, and the one
-feeling it must evoke. If you can't name the direction, you're not ready to design. Everything
-below flows from this read.
+feeling it must evoke. If you can't name the direction, you're not ready to design.
 
-## The three dials (set 1–10 from the brief)
+## The dials (set 1–10 from the brief)
 
 A calibration mechanic (inspired by Leon Lin's `taste-skill`, re-fit for static Figma). The dials
-are gates, not vibes — they decide which layout/spacing/treatment families you may use.
+are **gates, not vibes** — each value unlocks concrete choices:
 
-- **VARIANCE** — 1 = strict symmetry & even grids · 10 = asymmetry, grid-breaking, fractional/
-  masonry layouts.
-- **DENSITY** — 1 = art-gallery, generous whitespace · 10 = packed, data-dense, cockpit.
-- **ATMOSPHERE** — 1 = flat & clean · 10 = layered depth: texture, gradient mesh, shadow, grain.
-  (Static frames have no motion — capture any *intended* motion as build annotations for later.)
+| Dial | 1–3 | 4–7 | 8–10 |
+|---|---|---|---|
+| **VARIANCE** (layout) | strict symmetry, even grid | mixed weights, one focal break | asymmetry, masonry, grid-breaking, no centered sections |
+| **DENSITY** (space) | art-gallery, ≥24px gaps | balanced, 16px rhythm | packed/cockpit, ≤8px gaps, tabular figures |
+| **ATMOSPHERE** (depth) | flat, clean fills | subtle shadow/gradient | layered texture, gradient mesh, grain, dramatic shadow |
+| **GEOMETRY** (form) | sharp, 0–2px radius | moderate 8–12px radius | soft/pill, ≥16px radius, organic curves |
+| **SATURATION** (color energy) | muted, desaturated | confident mid-chroma | electric, high-chroma accents |
 
-Declare the three values up front; let them constrain the choices below.
+Declare all five up front; static frames have no motion, so capture any *intended* motion as build
+annotations. Let the dials constrain everything below.
 
 ## Commit to a direction
 
-- **Typography** — a distinctive pairing (display + body). Avoid the generic defaults (Inter,
-  Roboto, Open Sans, Lato, system fonts). Pair high-contrast: editorial serif + grotesk, etc.
-- **Color** — one dominant color + a single sharp accent, defined in **OKLCH** for perceptual
-  consistency. Avoid timid, evenly-distributed palettes.
-- **Atmosphere** — per the ATMOSPHERE dial: backgrounds with depth, not flat fills.
-- **Spacing** — a clear rhythm on the **8px grid** (see `design-system-conventions`).
-- **Anti-convergence** — rotate choices across projects; never default to the same look twice.
+- **Typography** — a distinctive pairing; avoid generic defaults. Full craft (scale ratio,
+  leading, measure, tracking, tabular figures, glyph coverage / i18n) → **`typography.md`**.
+- **Color** — a full palette in OKLCH (dominant + accent + neutral ramp + state colors + dark
+  theme), with the lightness≠contrast trap called out → **`color.md`**.
+- **Atmosphere & geometry** — per the ATMOSPHERE and GEOMETRY dials.
+- **Spacing** — a clear rhythm on the 8px grid (see `design-system-conventions`).
+
+## Anti-convergence (a mechanism, not a wish)
+
+Don't default to one look. **Generate 2–3 genuinely distinct directions first, then pick the least
+generic** that still fits the brief. Have the brief name looks to *avoid*. (An agent has no
+cross-session memory, so "don't repeat yourself" only works as an in-session choice.)
 
 ## Design principles — the compass (weigh trade-offs with these)
 
@@ -63,18 +70,19 @@ Declare the three values up front; let them constrain the choices below.
 
 ## Avoid AI slop
 
-The direction and every screen must dodge the tells in **`anti-slop.md`** — read it and check
-against it before and after building.
+The direction and every screen must dodge the tells in **`anti-slop.md`** — check before and after.
 
 ## Build it
 
-1. **Foundation first** — with `figma-generate-library`: variables/tokens for the committed
-   palette (OKLCH), the type scale, spacing (8px), and the core components.
-2. **Then screens** — with `figma-generate-design`: assemble views from that foundation.
-3. Name everything per `design-system-conventions`.
+1. **Foundation first** — `figma-generate-library`: OKLCH variables, type scale, 8px spacing, core
+   components. Name everything per `design-system-conventions` (tiered tokens).
+2. **Then screens** — `figma-generate-design`: assemble views from that foundation.
 
-## Pre-flight
+## Done means
 
-Before calling it done, run **`pre-flight.md`** — accessibility, responsive, and craft checks.
+- [ ] Passes the shared **quality gate** (`design-system-conventions/qa.md` — a11y, states, forms,
+      responsive).
+- [ ] Passes the `anti-slop.md` scan.
+- [ ] Matches the one-line direction from Step 0; chosen over 2–3 alternatives (anti-convergence).
 
 The test: it feels intentionally designed — like a real brand made it, not an AI.

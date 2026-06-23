@@ -32,6 +32,18 @@ recognizable tell; ship the **fix**, not the tell.
 - **Em-dash overuse** — the highest-frequency LLM signature in generated copy → use sparingly.
 - **Vague marketing filler** ("Empower your workflow") → concrete, specific language.
 
+## Current-gen tells (what reads as "AI made this" right now)
+These are the 2026 defaults — more dangerous because they *look* modern:
+- **Bento grids** as the reflexive layout → use only if genuinely the right structure; vary it.
+- **Glassmorphism / backdrop-blur everywhere** → reserve for true overlays, not as a theme.
+- **Gradient-filled headings** → solid, confident type; let color live in the palette.
+- **The generic SaaS hero** (centered headline + two buttons + a floating dashboard screenshot)
+  → find a composition specific to the product.
+- **Pure-black `#000` dark mode + one neon accent** → near-black with brand hue, desaturated
+  accent (see `color.md`).
+- **The Linear/Vercel/Geist clone** (monochrome grotesk on near-black, faint borders, subtle
+  glow) → it's now the safe center; commit to something with a point of view.
+
 ## The check
 Before and after building, scan the design against this list. Any tell present = revise before
 shipping. When in doubt, ask: *would a thoughtful brand have made this exact choice, or is it the
