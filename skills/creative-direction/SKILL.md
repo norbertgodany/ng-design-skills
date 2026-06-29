@@ -28,8 +28,7 @@ feeling it must evoke. If you can't name the direction, you're not ready to desi
 
 ## The dials (set 1–10 from the brief)
 
-A calibration mechanic (inspired by Leon Lin's `taste-skill`, re-fit for static Figma). The dials
-are **gates, not vibes** — each value unlocks concrete choices:
+A calibration mechanic. The dials are **gates, not vibes** — each value unlocks concrete choices:
 
 | Dial | 1–3 | 4–7 | 8–10 |
 |---|---|---|---|
@@ -84,5 +83,7 @@ The direction and every screen must dodge the tells in **`anti-slop.md`** — ch
       responsive).
 - [ ] Passes the `anti-slop.md` scan.
 - [ ] Matches the one-line direction from Step 0; chosen over 2–3 alternatives (anti-convergence).
+- [ ] Passes the **independent critique gate** (`design-system-conventions` → dispatch
+      `design-critic`); all BLOCK findings resolved.
 
 The test: it feels intentionally designed — like a real brand made it, not an AI.

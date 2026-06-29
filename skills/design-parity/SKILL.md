@@ -44,6 +44,8 @@ Then work in this order:
 5. **Loop until visually indistinguishable.** That is the success criterion.
 6. **Run the quality gate.** Apply the accessibility items of `design-system-conventions/qa.md`;
    flag (don't replicate) any production a11y defects per the rule above.
+7. **Independent critique before sign-off.** Run the **independent critique gate** in
+   `design-system-conventions` (dispatch `design-critic`); resolve all BLOCK findings before done.
 
 **Be honest about verification.** When the product has a tokenized design system in code (e.g. a
 `tokens.ts`), those values are the authoritative spec and the screenshot confirms the render. If

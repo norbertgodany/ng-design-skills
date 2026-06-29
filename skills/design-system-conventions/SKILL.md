@@ -43,7 +43,15 @@ display tighter (~1.05–1.15) with slight negative letter-spacing on large disp
 ## Token tiering — primitive → semantic → component
 
 Three tiers (DTCG / Material 3 / Tokens Studio standard):
-1. **Primitive** — raw values, the ramps: `color/blue/500`, `space/16`, `radius/12`.
+1. **Primitive** — raw values, the ramps. One token per step; never hardcode these in a layout:
+   - **Color** — `color/blue/500`
+   - **Space** — `space/16` (gap, margin, padding; the 8px ladder)
+   - **Sizing** — `size/icon/20`, `size/control/40` (element dimensions, distinct from space)
+   - **Typography** — `font/family/sans`, `font/weight/600`, `font/size/16`, `line-height/1.5`, `letter-spacing/-0.02`
+   - **Border** — `radius/12`, `border-width/1`
+   - **Effects** — opacity `opacity/40`; shadow `shadow/md` (composite: x/y offset, blur, spread, color)
+   - **Gradient** — `gradient/brand` (composite: stops + direction)
+   - **Breakpoint** — `breakpoint/md/768`
 2. **Semantic** — intent, *aliased to primitives*: `background-danger` → `color/red/600`.
 3. **Component** (optional) — per-component overrides: `button-bg-primary` → `background-brand`.
 Build screens against **semantic** tokens; never hardcode primitives in a layout.
@@ -66,3 +74,12 @@ tokens/components). When genuinely creating something new:
 
 Every screen — generated, replicated, or greenfield — must pass the shared accessibility / states
 / forms / responsive checklist before it's done. See **`qa.md`**.
+
+## Independent critique gate
+
+Self-review misses what you rationalized — the producer of a design is the worst judge of it.
+Before any design is declared done, get an **adversarial, evidence-based** pass: dispatch the
+**`design-critic`** agent (it reviews in a fresh context and can't defend your decisions), or load
+**`design-critique`** and apply it yourself. Resolve every **BLOCK** finding and re-review until
+**PASS** — max 3 rounds, then surface unresolved findings to the user. Advisory findings are
+recommendations, not blockers.
