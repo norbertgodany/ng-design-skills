@@ -4,3 +4,9 @@ Thumbs.db
 *.swp
 .idea/
 .vscode/
+
+# Local scratch / test artifacts (generated images, screenshots)
+.scratch/
+
+# Claude Code local session data (plans, settings)
+.claude/

@@ -17,12 +17,16 @@ existing production).
 | **design-generation** | **Brownfield** — a design system already exists. Create new on-brand screens/variations that reuse existing components and interaction patterns. (No system yet → `creative-direction`; replicating an existing screen → `design-parity`.) |
 | **design-parity** | Mirroring/syncing an **existing/shipped** production screen into Figma 1:1 (production → design). Structure audit (auto-layout + semantic naming), 8px-grid spacing, capturing production via Chrome MCP, native-resolution visual cross-check. |
 | **design-system-conventions** | The shared **foundation** for the other three. Reuse-first rule, naming schemes, token tiering, the spacing (8px) + type scales, and the shared **quality gate** (`qa.md` — accessibility, states, forms, responsive). |
+| **design-critique** | The adversarial **review** rubric — used before any design is declared done. Evidence-based posture (compute contrast, cross-check sizes against tokens), blocking (coherence / a11y / broken reuse) vs advisory (taste / slop) tiers, PASS/BLOCK verdict. Paired with the **`design-critic`** agent, which runs it in a fresh, independent context. |
 
 **Load `design-system-conventions` alongside any of the other three** — they reference it for the
 scales and the quality gate. (Foundation → `creative-direction` / `design-generation` /
 `design-parity` all stand on it.)
 
-*`creative-direction` is original work, drawing inspiration from `frontend-design`, `taste-skill`, and `design-taste`.*
+*`creative-direction` is original work, drawing inspiration from
+[`frontend-design`](https://github.com/anthropics/skills/tree/main/skills/frontend-design),
+[`taste-skill`](https://github.com/Leonxlnx/taste-skill), and
+[`design-taste`](https://github.com/h3nryprod01/design-taste).*
 
 ## Install
 
@@ -49,12 +53,16 @@ skill's description; you can also invoke one explicitly with `/design-skills:des
 .claude-plugin/
   plugin.json        # plugin manifest
   marketplace.json   # marketplace listing this plugin (source ".")
+agents/
+  design-critic.md   # independent adversarial reviewer (runs design-critique)
 skills/
   creative-direction/
     SKILL.md
     anti-slop.md
     color.md
     typography.md
+  design-critique/
+    SKILL.md
   design-generation/
     SKILL.md
   design-parity/

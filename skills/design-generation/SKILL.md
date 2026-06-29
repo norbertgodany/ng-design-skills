@@ -55,5 +55,7 @@ unavoidable.** When you must: build it on-brand following `design-system-convent
 7. **Offer variations** when exploring, so trade-offs are visible.
 8. **Run the quality gate** — pass `design-system-conventions/qa.md` (a11y, states, forms,
    responsive) before done.
+9. **Independent critique before done** — run the **independent critique gate** in
+   `design-system-conventions` (dispatch `design-critic`); resolve all BLOCK findings.
 
 The test: a teammate can't tell it's new — it looks like it was always part of the product.
