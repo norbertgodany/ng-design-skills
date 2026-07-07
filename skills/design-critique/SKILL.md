@@ -32,6 +32,12 @@ says otherwise.
   color alone; interactive states missing or not visually distinct.
 - **Broken system reuse** — a hardcoded value that has a token; a component redrawn instead of
   reused; non-semantic naming. (See `design-system-conventions`.)
+- **Layer / frame structure** — redundant wrapper or group layers that bloat the tree; absolute
+  positioning where auto-layout belongs; flattened or detached instances; hierarchy that doesn't
+  mirror the logical component tree. (See `design-system-conventions`.)
+- **Un-componentized repetition** — the same UI built as duplicated raw frames/layers instead of a
+  component with instances. Repeated copies that should be one main component block. (See
+  `design-system-conventions`.)
 - **Parity** (when mirroring production) — a visible mismatch against the reference.
 
 ## What to attack — ADVISORY (recommend, don't block)
