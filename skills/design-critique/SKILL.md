@@ -39,6 +39,11 @@ says otherwise.
 - **Un-componentized repetition** — the same UI built as duplicated raw frames/layers instead of a
   component with instances. Repeated copies that should be one main component block. (See
   `design-system-conventions`.)
+- **Surface / elevation coherence** — a card or panel indistinct from its background (no deliberate
+  surface step), inconsistent elevation across peers, or separation over-stacked (fill step +
+  border + shadow at once). (See `design-system-conventions/applying-the-system.md`.)
+- **House-style drift** (when reference screens exist) — a generated screen that doesn't read like
+  the product's shipped screens: off-brand surfaces, fills, spacing rhythm, or composition.
 - **Parity** (when mirroring production) — a visible mismatch against the reference.
 
 ## What to attack — ADVISORY (recommend, don't block)

@@ -90,10 +90,19 @@ tokens/components). When genuinely creating something new:
 - **Clean hierarchy.** Structure mirrors the logical component tree; layers named semantically
   (see above). No orphan vectors where a shape or icon component belongs.
 
+## Applying the system (in-context craft)
+
+The scales above give you the **ladder**; **`applying-the-system.md`** tells you **which rung** to
+pick when composing — the in-context decision craft for surfaces/elevation, typography, color/fill,
+spacing, radius, sizes, and position. It's where "reuse the system" becomes "reuse it *well*": how
+to layer a card on a background, which type step a role gets, which spacing a relationship needs.
+Load it whenever you're composing against an existing system.
+
 ## Quality gate
 
 Every screen — generated, replicated, or greenfield — must pass the shared accessibility / states
-/ forms / responsive checklist before it's done. See **`qa.md`**.
+/ forms / responsive / surfaces checklist before it's done. See **`qa.md`** (surface/hierarchy
+craft behind it: **`applying-the-system.md`**).
 
 ## Independent critique gate
 

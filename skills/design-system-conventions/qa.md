@@ -10,7 +10,8 @@ The completion checklist every screen must pass — whether built by `creative-d
       and meaningful icons against adjacent colors (WCAG 1.4.11).
 - [ ] **Visible focus state** on every interactive element.
 - [ ] **Color is never the sole signal** — pair with text / icon / shape.
-- [ ] **Touch targets** ≥ 44×44px.
+- [ ] **Touch targets** ≥ 44×44px *(advisory — aim for it; a smaller control with adequate
+      spacing/padding around it is acceptable, not a hard block)*.
 - [ ] **Heading levels (H1/H2/H3) and landmarks** (main/nav/aside) annotated; icon-only controls
       have an accessible name — so implementers don't guess.
 - [ ] **Reduced-motion** behavior annotated per motion element: "reduce speed" for simple
@@ -36,7 +37,18 @@ The completion checklist every screen must pass — whether built by `creative-d
       count, and density each have a stated behavior per breakpoint.
 - [ ] On desktop (1024+), max content width is capped; body line length ≤ ~75ch.
 - [ ] Landscape accounted for on 375/768.
-- [ ] Touch targets ≥ 44×44 on mobile; hover/precision affordances only from 1024+.
+- [ ] Touch targets ≥ 44×44 on mobile *(advisory, per Accessibility above)*; hover/precision
+      affordances only from 1024+.
+
+## Surfaces & hierarchy
+Craft behind these: `applying-the-system.md`.
+- [ ] **Cards/panels are distinct from their background** by a deliberate surface step (fill role),
+      not the same fill as the parent.
+- [ ] **Elevation is consistent** — peers at the same level share a surface role; nesting depth is
+      bounded and each deeper step is smaller.
+- [ ] **Separation isn't over-stacked** — fill step / border / shadow are prioritized, not all three
+      at once.
+- [ ] **Nested radius steps down** (inner < outer) so corners stay concentric.
 
 ## Figma rendering (effects & frames)
 A Figma frame (and auto-layout frame) **clips its children by default** — anything past the frame
