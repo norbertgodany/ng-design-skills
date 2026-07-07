@@ -20,9 +20,9 @@ corrected value — match the *intent*, not the bug. (Genuine non-violations: ha
 borders/dividers, icon & glyph sizes, type line-heights, safe-area insets, brand-mandated values.)
 
 **Set a goal up front.** When moving production → designs, open a session goal (`/goal`) with
-the condition that *the Figma frames look identical to production and the rechecks pass*, so the
-harness blocks stopping until the visual cross-check actually succeeds — not just until edits
-are made.
+the condition that *the Figma frames look identical to production, **or** the residual deltas are
+explicitly reported after 3 cross-check rounds* — so the harness blocks stopping until the visual
+cross-check actually succeeds or is honestly accounted for, not just until edits are made.
 
 Then work in this order:
 
@@ -41,7 +41,9 @@ Then work in this order:
    and compare it side-by-side with the production screenshot, element by element: spacing,
    color, font family/size/weight (text-style), text content, alignment, and order. Never
    judge from a thumbnail.
-5. **Loop until visually indistinguishable.** That is the success criterion.
+5. **Fix and re-check — at most 3 rounds.** Cross-check → fix → re-render, up to 3 times. If
+   deltas remain after round 3, stop and report each residual difference honestly (element,
+   expected vs actual) instead of grinding — the user decides whether the residue matters.
 6. **Run the quality gate.** Apply the accessibility items of `design-system-conventions/qa.md`;
    flag (don't replicate) any production a11y defects per the rule above.
 7. **Independent critique before sign-off.** Run the **independent critique gate** in
