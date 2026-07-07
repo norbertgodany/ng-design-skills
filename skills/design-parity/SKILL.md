@@ -37,13 +37,16 @@ Then work in this order:
    Fix structural problems before touching visuals.
 3. **Build with the system.** New container frames default to a **solid white fill — clear it**
    (`fills = []`) or it bleeds through on dark themes. Apply tokens and text-styles as you go.
+   Register each mirrored frame in `design-context/registry.md` (verbatim canonical URL + node
+   ID) as it's built (see `design-system-conventions/design-context.md`).
 4. **Cross-check at native resolution.** Render the Figma frame at its real size (e.g. 390×844)
    and compare it side-by-side with the production screenshot, element by element: spacing,
    color, font family/size/weight (text-style), text content, alignment, and order. Never
    judge from a thumbnail.
 5. **Fix and re-check — at most 3 rounds.** Cross-check → fix → re-render, up to 3 times. If
    deltas remain after round 3, stop and report each residual difference honestly (element,
-   expected vs actual) instead of grinding — the user decides whether the residue matters.
+   expected vs actual) — and record them in a dated `design-context/research/` note — instead of
+   grinding; the user decides whether the residue matters.
 6. **Run the quality gate.** Apply the accessibility items of `design-system-conventions/qa.md`;
    flag (don't replicate) any production a11y defects per the rule above.
 7. **Independent critique before sign-off.** Run the **independent critique gate** in
