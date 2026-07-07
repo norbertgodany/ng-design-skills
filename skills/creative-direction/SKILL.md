@@ -50,6 +50,11 @@ annotations. Let the dials constrain everything below.
 - **Atmosphere & geometry** — per the ATMOSPHERE and GEOMETRY dials.
 - **Spacing** — a clear rhythm on the 8px grid (see `design-system-conventions`).
 
+Persist the brief, the five dial values, and the chosen direction (with rejected alternatives) as
+a decision record in `design-context/decisions/` (see
+`design-system-conventions/design-context.md`) — the next session must not have to re-guess the
+direction.
+
 ## Anti-convergence (a mechanism, not a wish)
 
 Don't default to one look. **Generate 2–3 genuinely distinct directions first, then pick the least
@@ -85,5 +90,7 @@ The direction and every screen must dodge the tells in **`anti-slop.md`** — ch
 - [ ] Matches the one-line direction from Step 0; chosen over 2–3 alternatives (anti-convergence).
 - [ ] Passes the **independent critique gate** (`design-system-conventions` → dispatch
       `design-critic`); all BLOCK findings resolved.
+- [ ] Direction persisted: brief + dials + chosen palette/type decisions recorded in
+      `design-context/decisions/`.
 
 The test: it feels intentionally designed — like a real brand made it, not an AI.

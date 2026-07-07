@@ -16,7 +16,7 @@ existing production).
 | **creative-direction** | **Greenfield** — no design system yet. Establish a brand-new visual direction in Figma (type, color, atmosphere) and lay the foundation. Brief-first, taste dials, anti-slop, principles; delegates the build to `figma-generate-library` / `figma-generate-design`. (A system already exists → `design-generation`.) |
 | **design-generation** | **Brownfield** — a design system already exists. Create new on-brand screens/variations that reuse existing components and interaction patterns. (No system yet → `creative-direction`; replicating an existing screen → `design-parity`.) |
 | **design-parity** | Mirroring/syncing an **existing/shipped** production screen into Figma 1:1 (production → design). Structure audit (auto-layout + semantic naming), 8px-grid spacing, capturing production via Chrome MCP, native-resolution visual cross-check. |
-| **design-system-conventions** | The shared **foundation** for the other three. Reuse-first rule, naming schemes, token tiering, the spacing (8px) + type scales, the in-context **apply-with-craft** reference (`applying-the-system.md` — surfaces/elevation, type, color, spacing, radius, sizes, position), and the shared **quality gate** (`qa.md` — accessibility, states, forms, responsive, surfaces). |
+| **design-system-conventions** | The shared **foundation** for the other three. Reuse-first rule, naming schemes, token tiering, the spacing (8px) + type scales, the in-context **apply-with-craft** reference (`applying-the-system.md` — surfaces/elevation, type, color, spacing, radius, sizes, position), and the shared **quality gate** (`qa.md` — accessibility, states, forms, responsive, surfaces). Also owns the **durable-context convention** (`design-context.md` — persist node IDs/URLs, research, and decisions into the target project's `design-context/` so later sessions re-read instead of re-derive). |
 | **design-critique** | The adversarial **review** rubric — used before any design is declared done. Evidence-based posture (compute contrast, cross-check sizes against tokens), blocking (coherence / a11y / broken reuse) vs advisory (taste / slop) tiers, PASS/BLOCK verdict. Paired with the **`design-critic`** agent, which runs it in a fresh, independent context. |
 
 **Load `design-system-conventions` alongside any of the other three** — they reference it for the
@@ -87,6 +87,7 @@ skills/
   design-system-conventions/
     SKILL.md
     applying-the-system.md
+    design-context.md
     qa.md
 ```
 

@@ -19,6 +19,14 @@ values the product itself hardcodes, e.g. brand-mandated button colors.)
 **Source of truth.** When the product has a tokenized design system in code (e.g. a `tokens.ts`),
 those values are the authoritative spec — match them exactly; don't invent parallel values.
 
+## Durable context — persist findings to `design-context/`
+
+Precise data (Figma node IDs, file keys, canonical URLs, token names, measured values) and
+research/decision outcomes MUST be written to the target project's `design-context/` directory
+the moment you obtain them — conversation context gets compacted; files don't. Check
+`design-context/` for an existing registry and notes **before** re-deriving anything. Full
+convention (layout, verbatim registry rules, when to write): **`design-context.md`**.
+
 ## Spacing scale — the 8px grid
 
 For height, width, gap, margin, and padding, work down a tight step ladder: **8 = default**
@@ -111,4 +119,6 @@ Before any design is declared done, get an **adversarial, evidence-based** pass:
 **`design-critic`** agent (it reviews in a fresh context and can't defend your decisions), or load
 **`design-critique`** and apply it yourself. Resolve every **BLOCK** finding and re-review until
 **PASS** — max 3 rounds, then surface unresolved findings to the user. Advisory findings are
-recommendations, not blockers.
+recommendations, not blockers. When the gate resolves, the **dispatching session persists the
+outcome** — final verdict plus any unresolved findings — to `design-context/` (see
+`design-context.md`); the critic itself never writes.

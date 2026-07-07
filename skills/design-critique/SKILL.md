@@ -66,6 +66,10 @@ A verdict line — **PASS** or **BLOCK** — then a findings table:
 BLOCK if any blocking finding is open. Re-review after fixes, **max 3 rounds**; if a finding is
 still disputed after round 3, surface it to the user with both positions rather than looping.
 
+Persisting the outcome is the **dispatcher's** job: after the gate resolves, the session that
+dispatched the review records the verdict and unresolved findings in `design-context/` (see
+`design-system-conventions/design-context.md`). The reviewer only returns the verdict + table.
+
 ## Red flags — you are reviewing wrong
 
 - Opening with praise / a "ship-quality" verdict before any measurement

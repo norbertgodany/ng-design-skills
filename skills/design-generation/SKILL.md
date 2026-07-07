@@ -43,17 +43,21 @@ unavoidable.** When you must: build it on-brand following `design-system-convent
 
 1. **Frame the intent** (Purpose). Who is this for, and the one thing it must nail? Don't
    re-create solutions that already exist — define what makes this screen distinct.
-2. **Inventory the system.** Find the components, patterns, and tokens that already solve parts
-   of the problem, and reuse them.
+2. **Inventory the system.** Check the project's `design-context/` registry and notes first — a
+   prior session may already have the inventory (see
+   `design-system-conventions/design-context.md`). Then find the components, patterns, and tokens
+   that already solve parts of the problem, and reuse them.
 3. **Study the shipped screens.** Before composing, capture 2–3 existing live/production screens
    of the product (Chrome MCP or the running app — the same capture discipline `design-parity`
    uses) and derive its concrete **house style**: surface roles & fill usage, in-context spacing
    rhythm, composition patterns, type application. Compose in *that* visual language — not just
    from the abstract token list. This is how a new screen inherits the product's established look
    instead of a generic default. Apply the in-context craft in
-   `design-system-conventions/applying-the-system.md`.
+   `design-system-conventions/applying-the-system.md`. Persist the derived house style as a dated
+   note in `design-context/research/`.
 4. **Compose.** Assemble the new layout from those — on the 8px grid, with auto-layout and bound
-   tokens/text-styles (see `design-system-conventions`).
+   tokens/text-styles (see `design-system-conventions`). Register each new frame in
+   `design-context/registry.md` (verbatim canonical URL + node ID) as you create it.
 5. **Extend only when unavoidable** (high bar above), on-brand and flagged.
 6. **Cover the states.** For each data-loading surface, design the empty, error, loading, and
    disabled variants — not just the filled state.
