@@ -58,7 +58,8 @@ the product's own work. Each section below is a few rules + the common mistake t
 ## Sizes
 - Size controls, targets, and icons off the **sizing scale** (distinct from spacing):
   `size/control/*`, `size/icon/*`.
-- **Touch targets ≥ 44×44px.** Optically size icons to their neighbours rather than to a raw box.
+- **Touch targets ≥ 44×44px** *(advisory, per `qa.md` — adequate spacing/padding around a smaller
+  control is acceptable)*. Optically size icons to their neighbours rather than to a raw box.
 - Common mistake: icons at raw pixel values that fight the text they sit beside → align to the
   sizing scale and optical weight.
 
