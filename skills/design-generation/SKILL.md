@@ -45,17 +45,24 @@ unavoidable.** When you must: build it on-brand following `design-system-convent
    re-create solutions that already exist — define what makes this screen distinct.
 2. **Inventory the system.** Find the components, patterns, and tokens that already solve parts
    of the problem, and reuse them.
-3. **Compose.** Assemble the new layout from those — on the 8px grid, with auto-layout and bound
+3. **Study the shipped screens.** Before composing, capture 2–3 existing live/production screens
+   of the product (Chrome MCP or the running app — the same capture discipline `design-parity`
+   uses) and derive its concrete **house style**: surface roles & fill usage, in-context spacing
+   rhythm, composition patterns, type application. Compose in *that* visual language — not just
+   from the abstract token list. This is how a new screen inherits the product's established look
+   instead of a generic default. Apply the in-context craft in
+   `design-system-conventions/applying-the-system.md`.
+4. **Compose.** Assemble the new layout from those — on the 8px grid, with auto-layout and bound
    tokens/text-styles (see `design-system-conventions`).
-4. **Extend only when unavoidable** (high bar above), on-brand and flagged.
-5. **Cover the states.** For each data-loading surface, design the empty, error, loading, and
+5. **Extend only when unavoidable** (high bar above), on-brand and flagged.
+6. **Cover the states.** For each data-loading surface, design the empty, error, loading, and
    disabled variants — not just the filled state.
-6. **Pressure-test against the principles** — hierarchy and simplicity first, then familiarity,
+7. **Pressure-test against the principles** — hierarchy and simplicity first, then familiarity,
    craft, and delight. Cut anything that doesn't earn its place.
-7. **Offer variations** when exploring, so trade-offs are visible.
-8. **Run the quality gate** — pass `design-system-conventions/qa.md` (a11y, states, forms,
-   responsive) before done.
-9. **Independent critique before done** — run the **independent critique gate** in
+8. **Offer variations** when exploring, so trade-offs are visible.
+9. **Run the quality gate** — pass `design-system-conventions/qa.md` (a11y, states, forms,
+   responsive, surfaces) before done.
+10. **Independent critique before done** — run the **independent critique gate** in
    `design-system-conventions` (dispatch `design-critic`); resolve all BLOCK findings.
 
 The test: a teammate can't tell it's new — it looks like it was always part of the product.

@@ -70,10 +70,39 @@ tokens/components). When genuinely creating something new:
   categorization only.
 - **Layers / elements — `Function-Role-Identifier`.** E.g. `Nav-Header-01`, `Footer-Legal-Links`.
 
+## Layer & frame structure
+
+**Build the layer tree lean — every layer earns its place.** This generalizes design-parity's
+"Audit structure before pixels" to *all* design work: generated, greenfield, and replicated.
+
+- **Minimal layers.** No redundant wrapper or group layers; don't bloat the layer panel. Collapse
+  single-child pass-through frames; prefer one auto-layout frame over nested groups that do nothing.
+- **Auto-layout by default.** Related children (stacked / aligned / gapped) belong in an
+  auto-layout frame — no absolute x/y where layout belongs. Use **hug / fill** sizing where content
+  should drive size rather than fixed dimensions.
+- **Latest Figma conventions.** Build with **variants + component properties** (boolean,
+  instance-swap, text), nested instances, and component sets — not duplicated per-state layers.
+  Avoid detached instances and rasterized / flattened UI.
+- **Componentize repetition.** When no existing component fits and you build new UI, the moment that
+  UI repeats (or clearly will), make it a **component** and place **instances** — never copy-paste
+  the same frame/layer group twice. Repeated raw frames are a defect: they make every later edit an
+  N-place manual change instead of one edit to the main component. Second use = componentize.
+- **Clean hierarchy.** Structure mirrors the logical component tree; layers named semantically
+  (see above). No orphan vectors where a shape or icon component belongs.
+
+## Applying the system (in-context craft)
+
+The scales above give you the **ladder**; **`applying-the-system.md`** tells you **which rung** to
+pick when composing — the in-context decision craft for surfaces/elevation, typography, color/fill,
+spacing, radius, sizes, and position. It's where "reuse the system" becomes "reuse it *well*": how
+to layer a card on a background, which type step a role gets, which spacing a relationship needs.
+Load it whenever you're composing against an existing system.
+
 ## Quality gate
 
 Every screen — generated, replicated, or greenfield — must pass the shared accessibility / states
-/ forms / responsive checklist before it's done. See **`qa.md`**.
+/ forms / responsive / surfaces checklist before it's done. See **`qa.md`** (surface/hierarchy
+craft behind it: **`applying-the-system.md`**).
 
 ## Independent critique gate
 

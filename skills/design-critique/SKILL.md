@@ -28,10 +28,22 @@ says otherwise.
 
 - **Coherence / correctness** — numbers that don't reconcile, a control that disagrees with what it
   shows, content that contradicts itself. *Often the highest-value defect — look here first.*
-- **Accessibility** — text contrast below WCAG AA (4.5:1 body, 3:1 large/UI); meaning carried by
-  color alone; interactive states missing or not visually distinct.
+- **Accessibility** — text contrast **clearly** below WCAG AA (4.5:1 body, 3:1 large/UI); meaning
+  carried by color alone; interactive states missing or not visually distinct. A **marginal
+  near-miss** (e.g. 4.3:1 where 4.5:1 is wanted) is advisory, not an automatic block.
 - **Broken system reuse** — a hardcoded value that has a token; a component redrawn instead of
   reused; non-semantic naming. (See `design-system-conventions`.)
+- **Layer / frame structure** — redundant wrapper or group layers that bloat the tree; absolute
+  positioning where auto-layout belongs; flattened or detached instances; hierarchy that doesn't
+  mirror the logical component tree. (See `design-system-conventions`.)
+- **Un-componentized repetition** — the same UI built as duplicated raw frames/layers instead of a
+  component with instances. Repeated copies that should be one main component block. (See
+  `design-system-conventions`.)
+- **Surface / elevation coherence** — a card or panel indistinct from its background (no deliberate
+  surface step), inconsistent elevation across peers, or separation over-stacked (fill step +
+  border + shadow at once). (See `design-system-conventions/applying-the-system.md`.)
+- **House-style drift** (when reference screens exist) — a generated screen that doesn't read like
+  the product's shipped screens: off-brand surfaces, fills, spacing rhythm, or composition.
 - **Parity** (when mirroring production) — a visible mismatch against the reference.
 
 ## What to attack — ADVISORY (recommend, don't block)
@@ -40,8 +52,8 @@ Off-grid nits with no real consequence (a 1px height, a stray gap), type polish 
 letter-spacing), and **slop tells**: generic AI-default palette, no intentional contrast, default
 drop shadows, everything safe and even, no brand specificity. (See `creative-direction`.)
 
-**Calibrate by consequence, not rule-count.** A failed contrast or an incoherent total blocks; a
-79-vs-80px card is an advisory nit. A critic that blocks on nits gets ignored — which defeats the
+**Calibrate by consequence, not rule-count.** A substantial contrast failure or an incoherent total
+blocks; a marginal contrast near-miss or a 79-vs-80px card is an advisory nit. A critic that blocks on nits gets ignored — which defeats the
 purpose.
 
 ## Output
