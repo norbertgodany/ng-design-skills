@@ -41,6 +41,9 @@ unavoidable.** When you must: build it on-brand following `design-system-convent
 
 ## Workflow
 
+**Pick the scope tier first** (`design-system-conventions` → Scope tiers): a small edit to an
+existing screen runs the light gate, not every step below.
+
 1. **Frame the intent** (Purpose). Who is this for, and the one thing it must nail? Don't
    re-create solutions that already exist — define what makes this screen distinct.
 2. **Inventory the system — read the cache first.** Read `design-context/system/tokens.md` +

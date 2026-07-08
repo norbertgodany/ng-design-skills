@@ -21,6 +21,9 @@ data; this skill exists to make a bold, coherent choice and execute it with care
 
 Do not reimplement those mechanics here. This skill is the creative layer on top of them.
 
+Scope tier (see `design-system-conventions` → Scope tiers): greenfield work is effectively always
+**full scope** — expect the full gate stack.
+
 ## Step 0 — Read the brief first
 
 Before designing, state a **one-line design direction**: who it's for, what it's for, and the one

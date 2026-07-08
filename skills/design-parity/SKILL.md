@@ -19,6 +19,10 @@ ships insufficient contrast, a missing focus state, or color-only signals, flag 
 corrected value — match the *intent*, not the bug. (Genuine non-violations: hairline
 borders/dividers, icon & glyph sizes, type line-heights, safe-area insets, brand-mandated values.)
 
+**Pick the scope tier first** (`design-system-conventions` → Scope tiers): a small fix to an
+already-mirrored frame runs the light gate (targeted QA + one pixel-diff + single-round critique),
+not all seven steps below.
+
 **Set a goal up front.** When moving production → designs, open a session goal (`/goal`) with
 the condition that *the Figma frames look identical to production, **or** the residual deltas are
 explicitly reported after 3 cross-check rounds* — so the harness blocks stopping until the visual
