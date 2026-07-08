@@ -102,6 +102,23 @@ Every screen — generated, replicated, or greenfield — must pass the shared a
 / forms / responsive / surfaces checklist before it's done. See **`qa.md`** (surface/hierarchy
 craft behind it: **`applying-the-system.md`**).
 
+## One evidence chain
+
+Verification stages share evidence forward — the same screen is never re-shot per gate. The final
+cross-check render **is** the QA-gate evidence (re-shoot only what a fix changed since). When
+dispatching the critic, pass the node ID + canonical URL plus paths to the production capture,
+pixel-diff result, and `design-context/system/tokens.md`. The critic re-fetches only what comes
+*from the Figma file under review* — its own screenshot and structure; that's what independence
+protects. Production captures and mechanical dumps are shared artifacts, not re-derived. Critique
+rounds 2–3 re-verify only changed nodes and disputed findings.
+
+## Verification cadence — batch, then verify
+
+Never render after every edit. Make **all planned edits for a surface, then run one render/verify
+cycle** — that is also the shape of each cross-check round (fix everything found, re-render once).
+Independent captures — shipped-screen studies, state variants, exploratory variations — run as
+**one batched round of tool calls**, never serially.
+
 ## Independent critique gate
 
 Self-review misses what you rationalized — the producer of a design is the worst judge of it.

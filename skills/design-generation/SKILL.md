@@ -55,7 +55,8 @@ existing screen runs the light gate, not every step below.
    `design-context/research/` and the shipped screens haven't changed, **reuse it and skip this
    capture**. Otherwise capture 2–3 existing live/production screens
    of the product (Chrome MCP or the running app — the same capture discipline `design-parity`
-   uses) and derive its concrete **house style**: surface roles & fill usage, in-context spacing
+   uses; the captures are independent — **batch them in one round of tool calls**) and derive its
+   concrete **house style**: surface roles & fill usage, in-context spacing
    rhythm, composition patterns, type application. Compose in *that* visual language — not just
    from the abstract token list. This is how a new screen inherits the product's established look
    instead of a generic default. Apply the in-context craft in
@@ -66,10 +67,12 @@ existing screen runs the light gate, not every step below.
    `design-context/registry.md` (verbatim canonical URL + node ID) as you create it.
 5. **Extend only when unavoidable** (high bar above), on-brand and flagged.
 6. **Cover the states.** For each data-loading surface, design the empty, error, loading, and
-   disabled variants — not just the filled state.
+   disabled variants — not just the filled state. The variants are independent — build them as a
+   batch, then verify once (`design-system-conventions` → Verification cadence).
 7. **Pressure-test against the principles** — hierarchy and simplicity first, then familiarity,
    craft, and delight. Cut anything that doesn't earn its place.
-8. **Offer variations** when exploring, so trade-offs are visible.
+8. **Offer variations** when exploring, so trade-offs are visible — variations are independent;
+   build them in parallel, not serially.
 9. **Run the quality gate** — pass `design-system-conventions/qa.md` (a11y, states, forms,
    responsive, surfaces) before done.
 10. **Independent critique before done** — run the **independent critique gate** in

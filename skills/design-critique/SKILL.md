@@ -65,6 +65,8 @@ A verdict line — **PASS** or **BLOCK** — then a findings table:
 
 BLOCK if any blocking finding is open. Re-review after fixes, **max 3 rounds**; if a finding is
 still disputed after round 3, surface it to the user with both positions rather than looping.
+Re-reviews are **scoped to the fixed and disputed findings** — re-fetch the screenshot, but
+re-pull structure only for the nodes that changed.
 
 Persisting the outcome is the **dispatcher's** job: after the gate resolves, the session that
 dispatched the review records the verdict and unresolved findings in `design-context/` (see

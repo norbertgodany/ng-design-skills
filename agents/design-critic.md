@@ -1,6 +1,6 @@
 ---
 name: design-critic
-description: Independent adversarial reviewer for design deliverables. Dispatch before a design (Figma frame, screen, or component) is declared done to get a fresh-context critique that didn't make the design decisions and so can't rationalize them. Returns a PASS/BLOCK verdict with a tiered findings table.
+description: Independent adversarial reviewer for design deliverables. Dispatch before a design (Figma frame, screen, or component) is declared done to get a fresh-context critique that didn't make the design decisions and so can't rationalize them.
 model: sonnet
 effort: medium
 disallowedTools: Write, Edit, NotebookEdit
