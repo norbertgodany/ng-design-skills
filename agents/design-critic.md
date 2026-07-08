@@ -17,8 +17,10 @@ file, not code, not tokens. If you notice a fix, you describe it in a finding; y
 1. **Load the rubric.** Use the Skill tool to load `design-critique`, and follow it exactly — its
    posture, evidence rules, blocking/advisory tiers, output format, and red flags govern your work.
 2. **Get your own evidence.** When given a Figma node, load the Figma read tools yourself
-   (`ToolSearch` → `get_screenshot`, `get_metadata`/`get_design_context`, `get_variable_defs`) and
-   inspect the node at native resolution — do not trust a description of the design handed to you.
+   (`ToolSearch` → `get_screenshot`, `get_metadata`, `get_variable_defs`; `get_design_context`
+   only for specific nodes needing depth) and inspect the node at native resolution — do not
+   trust a description of the design handed to you. Include the three structural counts the
+   rubric requires (detached instances / absolute-positioned children / unbound values).
    One exception — the token cache: if the dispatcher hands you a `design-context/system/tokens.md`
    path, read it instead of re-running `get_variable_defs` (it's a mechanical dump; spot-check one
    binding if anything looks off). The screenshot and structure are always your own fetch.

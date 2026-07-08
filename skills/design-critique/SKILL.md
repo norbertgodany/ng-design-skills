@@ -17,10 +17,17 @@ says otherwise.
 
 ## Gather evidence — don't eyeball
 
-- **See it.** Render at native resolution (`get_screenshot`); pull structure (`get_metadata` /
-  `get_design_context`) and tokens (`get_variable_defs`).
+- **See it.** Render at native resolution (`get_screenshot`); pull structure with the **light**
+  tool first (`get_metadata`), escalating to `get_design_context` only for the specific nodes
+  whose fills/text/bindings you need in depth; pull tokens (`get_variable_defs`, or read the
+  token cache the dispatcher handed you).
 - **Measure, don't guess.** Cross-check actual spacing/size numbers against the token scale.
   **Compute** text contrast ratios — never call contrast "good" by eye.
+- **Structural scan — report three counts, not adjectives:** from the structure output, count
+  (1) detached instances, (2) absolute-positioned children inside containers that should be
+  auto-layout, (3) hardcoded fills/strokes/text properties where a matching token exists
+  (cross-check against the token list). Target is **0 / 0 / 0**; a review that omits the counts
+  is incomplete.
 - **Be honest about coverage.** A static frame can't show focus / hover / pressed / empty / loading
   states — flag those as *unverified*, never silently pass them.
 
