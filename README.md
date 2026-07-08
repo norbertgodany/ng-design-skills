@@ -61,7 +61,8 @@ skill's description; you can also invoke one explicitly with `/design-skills:des
 2. Keep it lean: SKILL.md stays under ~120 lines; move detail into on-demand reference files
    in the skill folder (the `qa.md` / `anti-slop.md` pattern). Only the `description` is
    always in context, so it must carry the "when to use" signal on its own.
-3. Bump `version` in both `.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json`.
+3. Bump `version` in both `.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json`,
+   and add a `CHANGELOG.md` entry.
 4. Commit and push. Installed users update with `/plugin marketplace update ng-design-skills`.
 
 ## Layout
