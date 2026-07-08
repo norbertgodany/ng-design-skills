@@ -11,10 +11,29 @@ rules); the three workflows stand on it — **`creative-direction`** (invent fro
 **`design-generation`** (invent within an existing system), and **`design-parity`** (replicate
 existing production).
 
+### Which skill, when
+
+| Situation | Skill |
+| --- | --- |
+| Blank file, no design system yet — inventing the look (type, color, atmosphere) | **creative-direction** |
+| System exists — new screen, flow, feature, or variation | **design-generation** |
+| Screen already shipped in production — mirror it into Figma 1:1 | **design-parity** |
+| Naming, scales, scope tiers, gates — the foundation | **design-system-conventions** (load alongside the three above) |
+| Sign-off review of any deliverable | **design-critique**, via a **design-critic** dispatch |
+
+**No system → creative-direction · system + new → design-generation · already live →
+design-parity.** Edge cases: a small tweak to an existing screen stays in its workflow skill at
+the **small scope tier** (targeted QA + one scoped critic dispatch); a new screen that should
+match a live sibling's look is **generation** (the house-style study covers the resemblance), not
+parity; rebuilding a shipped screen with intentional changes = parity for the baseline, then
+generation for the changes.
+
+### What each skill covers
+
 | Skill | Use it for |
 | --- | --- |
-| **creative-direction** | **Greenfield** — no design system yet. Establish a brand-new visual direction in Figma (type, color, atmosphere) and lay the foundation. Brief-first, taste dials, anti-slop, principles; delegates the build to `figma-generate-library` / `figma-generate-design`. (A system already exists → `design-generation`.) |
-| **design-generation** | **Brownfield** — a design system already exists. Create new on-brand screens/variations that reuse existing components and interaction patterns. (No system yet → `creative-direction`; replicating an existing screen → `design-parity`.) |
+| **creative-direction** | **Greenfield** — no design system yet. Establish a brand-new visual direction in Figma (type, color, atmosphere) and lay the foundation. Brief-first, taste dials, anti-slop, principles; delegates the build to `figma-generate-library` / `figma-generate-design`. |
+| **design-generation** | **Brownfield** — a design system already exists. Create new on-brand screens/variations that reuse existing components and interaction patterns. |
 | **design-parity** | Mirroring/syncing an **existing/shipped** production screen into Figma 1:1 (production → design). Structure audit (auto-layout + semantic naming), 8px-grid spacing, **measured capture** (viewport-exact screenshot + computed-CSS spec + verbatim copy + exact assets), **pixel-diff cross-check** (`scripts/pixel-diff.mjs`, numeric mismatch verdict). |
 | **design-system-conventions** | The shared **foundation** for the other three. Reuse-first rule, naming schemes, token tiering, the spacing (8px) + type scales, the in-context **apply-with-craft** reference (`applying-the-system.md` — surfaces/elevation, type, color, spacing, radius, sizes, position), and the shared **quality gate** (`qa.md` — accessibility, states, forms, responsive, surfaces). Also owns the **durable-context convention** (`design-context.md` — persist node IDs/URLs, research, and decisions into the target project's `design-context/` so later sessions re-read instead of re-derive). |
 | **design-critique** | The adversarial **review** rubric — used before any design is declared done. Evidence-based posture (compute contrast, cross-check sizes against tokens), blocking (coherence / a11y / broken reuse) vs advisory (taste / slop) tiers, PASS/BLOCK verdict. Paired with the **`design-critic`** agent, which runs it in a fresh, independent context. |
