@@ -90,8 +90,9 @@ structural problems (detached instance, unbound values, broken auto-layout) beco
 - **Small** — confined to existing frames: a token value tweak, copy/label change,
   single-component/instance fix, or spacing/style adjustment touching ≤2 components on one screen.
   No new screen/component, no layout restructure. **Gate:** the `qa.md` sections the change
-  touches + **one single-round `design-critic` dispatch scoped to the changed node IDs** (parity:
-  plus one pixel-diff of the affected frame).
+  touches + **one `design-critic` dispatch scoped to the changed node IDs** — on BLOCK: fix,
+  re-check once, then surface anything unresolved (parity work: plus one pixel-diff of the
+  affected frame).
 - **Full** — new screen/flow/component, layout restructure, multi-screen work, greenfield.
   **Gate:** states coverage + full `qa.md` + the workflow's cross-check loop + the critique gate
   below (max 3 rounds).
@@ -127,7 +128,7 @@ agent (it reviews in a fresh context and can't defend your decisions). A self-ap
 `design-critique` pass may *precede* the dispatch but never substitutes for it; only if the
 environment cannot run subagents at all, apply `design-critique` yourself in the freshest context
 available **and state in the sign-off that the review was not independent**. Resolve every
-**BLOCK** finding and re-review until **PASS** — max 3 rounds (small scope: one round), then
-surface unresolved findings to the user. Advisory findings are recommendations, not blockers. When the gate resolves, the **dispatching session persists the
+**BLOCK** finding and re-review until **PASS** — max 3 rounds (small scope: one round plus at
+most one re-check after fixes), then surface unresolved findings to the user. Advisory findings are recommendations, not blockers. When the gate resolves, the **dispatching session persists the
 outcome** — final verdict plus any unresolved findings — to `design-context/` (see
 `design-context.md`); the critic itself never writes.
