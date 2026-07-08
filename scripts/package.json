@@ -1,0 +1,10 @@
+{
+  "name": "ng-design-skills-scripts",
+  "private": true,
+  "type": "module",
+  "description": "Verification helpers for ng-design-skills (pixel-diff for design-parity).",
+  "dependencies": {
+    "pixelmatch": "^7.1.0",
+    "pngjs": "^7.0.0"
+  }
+}

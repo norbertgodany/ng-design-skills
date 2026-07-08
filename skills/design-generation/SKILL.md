@@ -30,26 +30,27 @@ unavoidable.** When you must: build it on-brand following `design-system-convent
 
 ## Design principles — the compass (universal; weigh trade-offs with these)
 
-- **Purpose** — make something meaningful; design serves the one thing this must do well.
-- **Agency** — let people act their own way; keep them informed; make mistakes recoverable.
-- **Responsibility** — act in people's best interest; be transparent; protect their data.
-- **Familiarity** — build on what people know; reuse established patterns consistently.
-- **Flexibility** — adapt to diverse contexts, inputs, and accessibility needs.
-- **Simplicity** — include only what's necessary; establish clear hierarchy; be concise.
-- **Craft** — care about every detail; refine spacing, type, motion, and wording.
-- **Delight** — decide the emotion to evoke; create defining moments; never decoration over purpose.
+**Purpose · Agency · Responsibility · Familiarity · Flexibility · Simplicity · Craft · Delight** —
+definitions in `design-system-conventions/principles.md`; load it when weighing trade-offs.
 
 ## Workflow
 
+**Pick the scope tier first** (`design-system-conventions` → Scope tiers): a small edit to an
+existing screen runs the light gate, not every step below.
+
 1. **Frame the intent** (Purpose). Who is this for, and the one thing it must nail? Don't
    re-create solutions that already exist — define what makes this screen distinct.
-2. **Inventory the system.** Check the project's `design-context/` registry and notes first — a
-   prior session may already have the inventory (see
-   `design-system-conventions/design-context.md`). Then find the components, patterns, and tokens
-   that already solve parts of the problem, and reuse them.
-3. **Study the shipped screens.** Before composing, capture 2–3 existing live/production screens
+2. **Inventory the system — read the cache first.** Read `design-context/system/tokens.md` +
+   `components.md` and the registry (see `design-system-conventions/design-context.md`); run live
+   discovery only if they're missing or stale per the staleness rule — and when you do, write the
+   cache. Then find the components, patterns, and tokens that already solve parts of the problem,
+   and reuse them.
+3. **Study the shipped screens.** If a dated house-style note already exists in
+   `design-context/research/` and the shipped screens haven't changed, **reuse it and skip this
+   capture**. Otherwise capture 2–3 existing live/production screens
    of the product (Chrome MCP or the running app — the same capture discipline `design-parity`
-   uses) and derive its concrete **house style**: surface roles & fill usage, in-context spacing
+   uses; the captures are independent — **batch them in one round of tool calls**) and derive its
+   concrete **house style**: surface roles & fill usage, in-context spacing
    rhythm, composition patterns, type application. Compose in *that* visual language — not just
    from the abstract token list. This is how a new screen inherits the product's established look
    instead of a generic default. Apply the in-context craft in
@@ -60,10 +61,12 @@ unavoidable.** When you must: build it on-brand following `design-system-convent
    `design-context/registry.md` (verbatim canonical URL + node ID) as you create it.
 5. **Extend only when unavoidable** (high bar above), on-brand and flagged.
 6. **Cover the states.** For each data-loading surface, design the empty, error, loading, and
-   disabled variants — not just the filled state.
+   disabled variants — not just the filled state. The variants are independent — build them as a
+   batch, then verify once (`design-system-conventions` → Verification cadence).
 7. **Pressure-test against the principles** — hierarchy and simplicity first, then familiarity,
    craft, and delight. Cut anything that doesn't earn its place.
-8. **Offer variations** when exploring, so trade-offs are visible.
+8. **Offer variations** when exploring, so trade-offs are visible — variations are independent;
+   build them in parallel, not serially.
 9. **Run the quality gate** — pass `design-system-conventions/qa.md` (a11y, states, forms,
    responsive, surfaces) before done.
 10. **Independent critique before done** — run the **independent critique gate** in

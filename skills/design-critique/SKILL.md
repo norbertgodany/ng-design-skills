@@ -17,10 +17,17 @@ says otherwise.
 
 ## Gather evidence — don't eyeball
 
-- **See it.** Render at native resolution (`get_screenshot`); pull structure (`get_metadata` /
-  `get_design_context`) and tokens (`get_variable_defs`).
+- **See it.** Render at native resolution (`get_screenshot`); pull structure with the **light**
+  tool first (`get_metadata`), escalating to `get_design_context` only for the specific nodes
+  whose fills/text/bindings you need in depth; pull tokens (`get_variable_defs`, or read the
+  token cache the dispatcher handed you).
 - **Measure, don't guess.** Cross-check actual spacing/size numbers against the token scale.
   **Compute** text contrast ratios — never call contrast "good" by eye.
+- **Structural scan — report three counts, not adjectives:** from the structure output, count
+  (1) detached instances, (2) absolute-positioned children inside containers that should be
+  auto-layout, (3) hardcoded fills/strokes/text properties where a matching token exists
+  (cross-check against the token list). Target is **0 / 0 / 0**; a review that omits the counts
+  is incomplete.
 - **Be honest about coverage.** A static frame can't show focus / hover / pressed / empty / loading
   states — flag those as *unverified*, never silently pass them.
 
@@ -43,7 +50,8 @@ says otherwise.
   surface step), inconsistent elevation across peers, or separation over-stacked (fill step +
   border + shadow at once). (See `design-system-conventions/applying-the-system.md`.)
 - **House-style drift** (when reference screens exist) — a generated screen that doesn't read like
-  the product's shipped screens: off-brand surfaces, fills, spacing rhythm, or composition.
+  the product's shipped screens: off-brand surfaces, fills, spacing rhythm, or composition. When
+  the dispatcher hands you a house-style note, cross-check its **measured values**, not the vibe.
 - **Parity** (when mirroring production) — a visible mismatch against the reference.
 
 ## What to attack — ADVISORY (recommend, don't block)
@@ -65,6 +73,8 @@ A verdict line — **PASS** or **BLOCK** — then a findings table:
 
 BLOCK if any blocking finding is open. Re-review after fixes, **max 3 rounds**; if a finding is
 still disputed after round 3, surface it to the user with both positions rather than looping.
+Re-reviews are **scoped to the fixed and disputed findings** — re-fetch the screenshot, but
+re-pull structure only for the nodes that changed.
 
 Persisting the outcome is the **dispatcher's** job: after the gate resolves, the session that
 dispatched the review records the verdict and unresolved findings in `design-context/` (see

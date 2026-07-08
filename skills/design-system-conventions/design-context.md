@@ -11,6 +11,10 @@ you're designing for (project-local, committed with that project) — never in t
 ```text
 design-context/
   registry.md      # lookup table: screens/components → canonical Figma URL, node ID, status
+  system/          # cached design-system state — mandated once a system exists (see below)
+    tokens.md      # verbatim variable/token dump (or pointer to the code tokens source), dated
+    components.md  # component inventory: name, node ID, variant props, one-line purpose
+  captures/        # verification evidence: production/Figma PNGs, computed-CSS JSON, diff images
   research/        # dated topic notes, e.g. 2026-07-08-nav-patterns.md
   decisions/       # dated decision records, e.g. 2026-07-08-color-direction.md
 ```
@@ -40,6 +44,21 @@ durable to record; never create it empty.
 - **Keep it lean.** Rationale, alternatives, and context go to `research/` or `decisions/` — a
   registry that reads like prose has failed.
 
+## The system cache (`system/`) — derive once, reuse until stale
+
+Once the project has a design system, `system/` is **mandated**: `tokens.md` holds the verbatim
+variable/token dump (`get_variable_defs` output, or a pointer to the code tokens source, e.g.
+`tokens.ts`); `components.md` holds the component inventory — name, node ID, variant props,
+one-line purpose per row. Each file's header records the source (file key or code path), the
+date, and the item count. These files are what turn "inventory the system" into a file read
+instead of a re-derivation.
+
+**Trust the cache.** Refresh a `system/` file only when a lookup **misses**, a variable bind
+**fails**, a session **modified the system**, or the file is **older than 30 days**. On refresh,
+re-dump and rewrite the whole file with a new date — never patch it from memory. Verification
+evidence goes under `captures/YYYY-MM-DD-<screen>/` (the target project may gitignore it);
+numbers worth keeping get transcribed into a `research/` note.
+
 ## Research & decision notes — dated, appended
 
 - `research/YYYY-MM-DD-<topic>.md` — what was studied and what it showed: house-style findings
@@ -52,6 +71,8 @@ durable to record; never create it empty.
 ## When to write — immediately, not at session end
 
 - **Frame/component created or node inspected** → registry row (verbatim URL + node ID).
+- **System inventoried** (variables dumped, components cataloged) → `system/tokens.md` /
+  `system/components.md` (verbatim, dated header).
 - **Research step done** (shipped screens studied, tokens read, patterns surveyed) → research note.
 - **Decision made** (direction, dials, palette, scale) → decision record.
 - **Critique gate resolved** → the **dispatching session** records the final verdict and any

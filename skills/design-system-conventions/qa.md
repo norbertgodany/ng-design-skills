@@ -3,6 +3,8 @@
 The completion checklist every screen must pass — whether built by `creative-direction`,
 `design-generation`, or `design-parity`. Any unchecked box = revise before done. For static Figma,
 "design" the state and **annotate** behavior that can't live in a frame (motion, dynamic a11y).
+Run the gate against the **latest existing render and metadata** — re-shoot only what a fix
+changed since (see `SKILL.md` → Quality gate: one evidence chain).
 
 ## Accessibility
 - [ ] **Text contrast** ≥ 4.5:1 (≥ 3:1 for large text) against its background.

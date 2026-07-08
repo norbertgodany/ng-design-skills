@@ -6,13 +6,11 @@ numbers right.
 ## Pairing
 - A display/heading face with character + a clean, legible body face. High contrast between them
   (e.g. editorial serif display + grotesk body; or expressive grotesk display + neutral body).
-- Avoid the generic defaults: Inter, Roboto, Open Sans, Lato, system stack — and the current
-  monochrome-grotesk safe choices (Geist, Space Grotesk) used reflexively. Choose with intent.
+- Avoid generic defaults — the font list lives in `anti-slop.md` (Typography). Choose with intent.
 
 ## Scale & rhythm
-- One **modular scale ratio**: 1.2 (minor third) for dense UI, 1.25, or 1.333 for editorial.
-  Define each step as a token; no one-off sizes. (See `design-system-conventions`.)
-- **Leading**: body ~1.4–1.6; display tight ~1.05–1.15.
+- Scale ratio and leading numbers are owned by `design-system-conventions` (Type scale) — use
+  those; define each step as a token, no one-off sizes.
 - **Measure**: body line length 45–75ch — never full-width paragraphs.
 - **Tracking**: slight *negative* letter-spacing on large display type; default elsewhere.
 - **Tabular figures** for any aligned numbers (tables, stats, the DENSITY-10 cockpit case).

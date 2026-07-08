@@ -10,3 +10,6 @@ Thumbs.db
 
 # Claude Code local session data (plans, settings)
 .claude/
+
+# Script dependencies (npm install --prefix scripts)
+scripts/node_modules/

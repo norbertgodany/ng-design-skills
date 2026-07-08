@@ -5,8 +5,7 @@ description: The shared foundation for all design work — use when building or 
 
 # Design-system conventions
 
-**Reuse first; name semantically; build on the scales; pass the gate.** This is the foundation
-the other design skills depend on.
+**Reuse first; name semantically; build on the scales; pass the gate.**
 
 ## Hard rule — reuse the existing design system
 
@@ -22,10 +21,10 @@ those values are the authoritative spec — match them exactly; don't invent par
 ## Durable context — persist findings to `design-context/`
 
 Precise data (Figma node IDs, file keys, canonical URLs, token names, measured values) and
-research/decision outcomes MUST be written to the target project's `design-context/` directory
-the moment you obtain them — conversation context gets compacted; files don't. Check
-`design-context/` for an existing registry and notes **before** re-deriving anything. Full
-convention (layout, verbatim registry rules, when to write): **`design-context.md`**.
+research/decision outcomes MUST be written to the target project's `design-context/` the moment
+you obtain them — context gets compacted; files don't. Check `design-context/` **before**
+re-deriving anything. Full convention (layout, registry rules, the system cache):
+**`design-context.md`**.
 
 ## Spacing scale — the 8px grid
 
@@ -48,77 +47,80 @@ editorial) rather than ad-hoc sizes. Define each step as a token (`type/size/sm�
 introduce a one-off size. Pair size with intentional weight contrast. Body line-height ~1.4–1.6;
 display tighter (~1.05–1.15) with slight negative letter-spacing on large display type.
 
-## Token tiering — primitive → semantic → component
+## Token tiering — primitive → semantic → component (DTCG / Material 3 standard)
 
-Three tiers (DTCG / Material 3 / Tokens Studio standard):
-1. **Primitive** — raw values, the ramps. One token per step; never hardcode these in a layout:
-   - **Color** — `color/blue/500`
-   - **Space** — `space/16` (gap, margin, padding; the 8px ladder)
-   - **Sizing** — `size/icon/20`, `size/control/40` (element dimensions, distinct from space)
-   - **Typography** — `font/family/sans`, `font/weight/600`, `font/size/16`, `line-height/1.5`, `letter-spacing/-0.02`
-   - **Border** — `radius/12`, `border-width/1`
-   - **Effects** — opacity `opacity/40`; shadow `shadow/md` (composite: x/y offset, blur, spread, color)
-   - **Gradient** — `gradient/brand` (composite: stops + direction)
-   - **Breakpoint** — `breakpoint/md/768`
+1. **Primitive** — raw values, the ramps; one token per step: color `color/blue/500`; space
+   `space/16` (the 8px ladder); sizing `size/icon/20`, `size/control/40` (distinct from space);
+   typography `font/family/sans`, `font/size/16`, `line-height/1.5`; border `radius/12`,
+   `border-width/1`; effects `opacity/40`, `shadow/md` (composite); gradient `gradient/brand`
+   (composite); breakpoint `breakpoint/md/768`.
 2. **Semantic** — intent, *aliased to primitives*: `background-danger` → `color/red/600`.
 3. **Component** (optional) — per-component overrides: `button-bg-primary` → `background-brand`.
 Build screens against **semantic** tokens; never hardcode primitives in a layout.
 
-## Naming conventions (for elements you must create new — reuse comes first)
+## Naming (new elements only — reuse comes first)
 
-Match an existing file's convention when extending one (project rules win — don't rename existing
-tokens/components). When genuinely creating something new:
-- **Tokens / variables — semantic, `{category}-{role}-{state}`.** Category = where it's used
-  (`background`, `text`, `border`); role = intent (`primary`, `danger`, `success`, `brand`);
-  state/modifier = variation (`hover`, `disabled`, `subtle`, `inverse`). E.g.
-  `background-danger-hover`, `text-primary-inverse`.
-- **Components — `Type/Category` for the slash name; put Size/State/Variant in Figma variant
-  properties, not in the slash path.** E.g. component `Button/Primary` with variant props
-  `size = Large`, `state = Hover` — not `Button/Primary/Large/Hover`. Slashes are for top-level
-  categorization only.
-- **Layers / elements — `Function-Role-Identifier`.** E.g. `Nav-Header-01`, `Footer-Legal-Links`.
+Match the file's existing convention (project rules win). When creating new: **tokens** semantic
+`{category}-{role}-{state}` (`background-danger-hover`); **components** `Type/Category` with
+Size/State/Variant as Figma variant props (`Button/Primary`, `size = Large` — never
+`Button/Primary/Large/Hover`); **layers** `Function-Role-Identifier` (`Nav-Header-01`). Full
+patterns + examples: **`structure.md`**.
 
 ## Layer & frame structure
 
-**Build the layer tree lean — every layer earns its place.** This generalizes design-parity's
-"Audit structure before pixels" to *all* design work: generated, greenfield, and replicated.
-
-- **Minimal layers.** No redundant wrapper or group layers; don't bloat the layer panel. Collapse
-  single-child pass-through frames; prefer one auto-layout frame over nested groups that do nothing.
-- **Auto-layout by default.** Related children (stacked / aligned / gapped) belong in an
-  auto-layout frame — no absolute x/y where layout belongs. Use **hug / fill** sizing where content
-  should drive size rather than fixed dimensions.
-- **Latest Figma conventions.** Build with **variants + component properties** (boolean,
-  instance-swap, text), nested instances, and component sets — not duplicated per-state layers.
-  Avoid detached instances and rasterized / flattened UI.
-- **Componentize repetition.** When no existing component fits and you build new UI, the moment that
-  UI repeats (or clearly will), make it a **component** and place **instances** — never copy-paste
-  the same frame/layer group twice. Repeated raw frames are a defect: they make every later edit an
-  N-place manual change instead of one edit to the main component. Second use = componentize.
-- **Clean hierarchy.** Structure mirrors the logical component tree; layers named semantically
-  (see above). No orphan vectors where a shape or icon component belongs.
+**Lean tree — every layer earns its place:** no redundant wrappers; **auto-layout by default**
+(no absolute x/y where layout belongs; hug/fill over fixed); **variants + component properties**,
+never per-state layer copies or detached/flattened instances; **second use = componentize** —
+repeated raw frames are a defect; hierarchy mirrors the logical component tree. Full craft +
+rationale: **`structure.md`**.
 
 ## Applying the system (in-context craft)
 
 The scales above give you the **ladder**; **`applying-the-system.md`** tells you **which rung** to
-pick when composing — the in-context decision craft for surfaces/elevation, typography, color/fill,
-spacing, radius, sizes, and position. It's where "reuse the system" becomes "reuse it *well*": how
-to layer a card on a background, which type step a role gets, which spacing a relationship needs.
-Load it whenever you're composing against an existing system.
+pick when composing — surfaces/elevation, typography, color/fill, spacing, radius, sizes, and
+position. Load it whenever you're composing against an existing system.
 
-## Quality gate
+## Scope tiers — right-size the gate
+
+Pick the tier first; unsure = full. **Escalate, never downgrade:** a small-scope run that uncovers
+structural problems (detached instance, unbound values, broken auto-layout) becomes full scope.
+
+- **Small** — confined to existing frames: a token value tweak, copy/label change,
+  single-component/instance fix, or spacing/style tweak touching ≤2 components on one screen —
+  no new screen/component, no restructure. **Gate:** the `qa.md` sections the change touches +
+  **one `design-critic` dispatch scoped to the changed node IDs** (on BLOCK: fix, re-check once,
+  then surface; parity work: plus one pixel-diff of the affected frame).
+- **Full** — new screen/flow/component, layout restructure, multi-screen work, greenfield.
+  **Gate:** states coverage + full `qa.md` + the workflow's cross-check loop + the critique gate
+  below (max 3 rounds).
+
+## Quality gate — one evidence chain, batched
 
 Every screen — generated, replicated, or greenfield — must pass the shared accessibility / states
-/ forms / responsive / surfaces checklist before it's done. See **`qa.md`** (surface/hierarchy
-craft behind it: **`applying-the-system.md`**).
+/ forms / responsive / surfaces checklist (**`qa.md`**; craft behind it: `applying-the-system.md`)
+before it's done.
+
+**Batch, then verify.** Never render after every edit: make all planned edits for a surface, then
+run **one** render/verify cycle — each cross-check round has the same shape (fix everything
+found, re-render once). Independent captures — shipped-screen studies, state variants,
+exploratory variations — run as one batched round of tool calls, never serially.
+
+**Share evidence forward.** The same screen is never re-shot per gate: the final cross-check
+render **is** the QA-gate evidence; re-shoot only what a fix changed. Hand the critic the node ID
++ canonical URL plus the production capture, pixel-diff result, `system/tokens.md`, and — for
+generated screens — the house-style research note paths; the
+critic re-fetches only what comes *from the Figma file under review* (its own screenshot +
+structure — that's what independence protects). Critique rounds 2–3 re-verify only changed nodes
+and disputed findings.
 
 ## Independent critique gate
 
 Self-review misses what you rationalized — the producer of a design is the worst judge of it.
-Before any design is declared done, get an **adversarial, evidence-based** pass: dispatch the
-**`design-critic`** agent (it reviews in a fresh context and can't defend your decisions), or load
-**`design-critique`** and apply it yourself. Resolve every **BLOCK** finding and re-review until
-**PASS** — max 3 rounds, then surface unresolved findings to the user. Advisory findings are
-recommendations, not blockers. When the gate resolves, the **dispatching session persists the
-outcome** — final verdict plus any unresolved findings — to `design-context/` (see
-`design-context.md`); the critic itself never writes.
+Before any design is declared done, in **every scope tier**, dispatch the **`design-critic`**
+agent (fresh context; it can't defend your decisions). A self-applied `design-critique` pass may
+*precede* the dispatch but never substitutes for it; only if the environment cannot run subagents
+at all, apply `design-critique` yourself **and state in the sign-off that the review was not
+independent**. Resolve every **BLOCK** finding and re-review until **PASS** — max 3 rounds (small
+scope: one round + one re-check), then surface unresolved findings to the user. Advisory findings
+are recommendations, not blockers. When the gate resolves, the **dispatching session persists the
+outcome** to `design-context/` (see `design-context.md`); the critic itself never writes.
