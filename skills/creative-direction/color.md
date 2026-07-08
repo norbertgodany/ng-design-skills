@@ -24,7 +24,6 @@ WCAG ratio** in `qa.md` (4.5:1 text, 3:1 large/non-text). An accent that looks b
 - Avoid pure `#000` — use a near-black with a touch of the brand hue (e.g. `oklch(0.18 0.01 250)`).
 - Re-verify contrast in dark mode separately; light-mode ratios don't carry over.
 
-## Avoid (see also `anti-slop.md`)
-- Timid, evenly-distributed palettes — commit to dominance + one accent.
-- The purple→pink gradient and beige+brass "premium" defaults.
-- Pure-black + single-neon-accent dark mode (a current AI tell).
+## Avoid
+The color tells — gradient defaults, timid evenly-distributed palettes, pure-black + neon dark
+mode — live in `anti-slop.md`; scan the palette against that list.

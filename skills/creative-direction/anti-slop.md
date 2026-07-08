@@ -4,8 +4,9 @@
 recognizable tell; ship the **fix**, not the tell.
 
 ## Typography
-- **Generic default fonts** (Inter, Roboto, Open Sans, Lato, system stack) → pick a distinctive,
-  characterful pairing; a display font with personality + a clean body font.
+- **Generic default fonts** (Inter, Roboto, Open Sans, Lato, system stack — and the reflexive
+  monochrome-grotesk safe picks, Geist / Space Grotesk) → pick a distinctive, characterful
+  pairing; a display font with personality + a clean body font.
 - **One font, one weight everywhere** → establish a real type scale with intentional weight/size
   contrast (see `design-system-conventions` for the scale).
 

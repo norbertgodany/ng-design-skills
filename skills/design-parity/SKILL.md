@@ -16,8 +16,8 @@ Parity-specific rule: if a production screen uses an **off-grid spacing value**,
 *likely development bug* — flag it and propose the on-grid value rather than replicating the
 defect. **The same flag-don't-replicate logic applies to accessibility defects:** if production
 ships insufficient contrast, a missing focus state, or color-only signals, flag it and propose the
-corrected value — match the *intent*, not the bug. (Genuine non-violations: hairline
-borders/dividers, icon & glyph sizes, type line-heights, safe-area insets, brand-mandated values.)
+corrected value — match the *intent*, not the bug. (The genuine-exceptions list lives in
+`design-system-conventions` → Spacing scale.)
 
 **Pick the scope tier first** (`design-system-conventions` → Scope tiers): a small fix to an
 already-mirrored frame runs the light gate (targeted QA + one pixel-diff + single-round critique),

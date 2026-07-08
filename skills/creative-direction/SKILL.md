@@ -66,14 +66,8 @@ cross-session memory, so "don't repeat yourself" only works as an in-session cho
 
 ## Design principles — the compass (weigh trade-offs with these)
 
-- **Purpose** — make something meaningful; serve the one thing it must do well.
-- **Agency** — let people act their own way; keep them informed; make mistakes recoverable.
-- **Responsibility** — act in people's best interest; be transparent; protect their data.
-- **Familiarity** — build on what people know; use established patterns consistently.
-- **Flexibility** — adapt to diverse contexts, inputs, and accessibility needs.
-- **Simplicity** — include only what's necessary; establish clear hierarchy; be concise.
-- **Craft** — care about every detail; refine spacing, type, and wording.
-- **Delight** — decide the emotion to evoke; create defining moments; never decoration over purpose.
+**Purpose · Agency · Responsibility · Familiarity · Flexibility · Simplicity · Craft · Delight** —
+definitions in `design-system-conventions/principles.md`; load it when weighing trade-offs.
 
 ## Avoid AI slop
 

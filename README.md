@@ -91,6 +91,7 @@ skills/
     SKILL.md
     applying-the-system.md
     design-context.md
+    principles.md
     qa.md
     structure.md
 ```

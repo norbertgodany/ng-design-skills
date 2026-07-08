@@ -30,14 +30,8 @@ unavoidable.** When you must: build it on-brand following `design-system-convent
 
 ## Design principles — the compass (universal; weigh trade-offs with these)
 
-- **Purpose** — make something meaningful; design serves the one thing this must do well.
-- **Agency** — let people act their own way; keep them informed; make mistakes recoverable.
-- **Responsibility** — act in people's best interest; be transparent; protect their data.
-- **Familiarity** — build on what people know; reuse established patterns consistently.
-- **Flexibility** — adapt to diverse contexts, inputs, and accessibility needs.
-- **Simplicity** — include only what's necessary; establish clear hierarchy; be concise.
-- **Craft** — care about every detail; refine spacing, type, motion, and wording.
-- **Delight** — decide the emotion to evoke; create defining moments; never decoration over purpose.
+**Purpose · Agency · Responsibility · Familiarity · Flexibility · Simplicity · Craft · Delight** —
+definitions in `design-system-conventions/principles.md`; load it when weighing trade-offs.
 
 ## Workflow
 
