@@ -107,7 +107,8 @@ exploratory variations — run as one batched round of tool calls, never seriall
 
 **Share evidence forward.** The same screen is never re-shot per gate: the final cross-check
 render **is** the QA-gate evidence; re-shoot only what a fix changed. Hand the critic the node ID
-+ canonical URL plus the production capture, pixel-diff result, and `system/tokens.md` paths; the
++ canonical URL plus the production capture, pixel-diff result, `system/tokens.md`, and — for
+generated screens — the house-style research note paths; the
 critic re-fetches only what comes *from the Figma file under review* (its own screenshot +
 structure — that's what independence protects). Critique rounds 2–3 re-verify only changed nodes
 and disputed findings.

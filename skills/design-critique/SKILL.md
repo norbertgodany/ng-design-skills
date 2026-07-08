@@ -50,7 +50,8 @@ says otherwise.
   surface step), inconsistent elevation across peers, or separation over-stacked (fill step +
   border + shadow at once). (See `design-system-conventions/applying-the-system.md`.)
 - **House-style drift** (when reference screens exist) — a generated screen that doesn't read like
-  the product's shipped screens: off-brand surfaces, fills, spacing rhythm, or composition.
+  the product's shipped screens: off-brand surfaces, fills, spacing rhythm, or composition. When
+  the dispatcher hands you a house-style note, cross-check its **measured values**, not the vibe.
 - **Parity** (when mirroring production) — a visible mismatch against the reference.
 
 ## What to attack — ADVISORY (recommend, don't block)
