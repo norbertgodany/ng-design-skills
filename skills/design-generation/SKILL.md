@@ -43,11 +43,14 @@ unavoidable.** When you must: build it on-brand following `design-system-convent
 
 1. **Frame the intent** (Purpose). Who is this for, and the one thing it must nail? Don't
    re-create solutions that already exist — define what makes this screen distinct.
-2. **Inventory the system.** Check the project's `design-context/` registry and notes first — a
-   prior session may already have the inventory (see
-   `design-system-conventions/design-context.md`). Then find the components, patterns, and tokens
-   that already solve parts of the problem, and reuse them.
-3. **Study the shipped screens.** Before composing, capture 2–3 existing live/production screens
+2. **Inventory the system — read the cache first.** Read `design-context/system/tokens.md` +
+   `components.md` and the registry (see `design-system-conventions/design-context.md`); run live
+   discovery only if they're missing or stale per the staleness rule — and when you do, write the
+   cache. Then find the components, patterns, and tokens that already solve parts of the problem,
+   and reuse them.
+3. **Study the shipped screens.** If a dated house-style note already exists in
+   `design-context/research/` and the shipped screens haven't changed, **reuse it and skip this
+   capture**. Otherwise capture 2–3 existing live/production screens
    of the product (Chrome MCP or the running app — the same capture discipline `design-parity`
    uses) and derive its concrete **house style**: surface roles & fill usage, in-context spacing
    rhythm, composition patterns, type application. Compose in *that* visual language — not just
