@@ -1,8 +1,9 @@
 # ng-design-skills
 
-A small, growing collection of [Claude Code](https://docs.claude.com/en/docs/claude-code)
-skills for **design work** — packaged as a plugin so they're installable in one step and
-namespaced cleanly.
+A small, growing collection of agent skills for **design work** — packaged as a plugin for
+[Claude Code](https://docs.claude.com/en/docs/claude-code) and
+[Codex / ChatGPT](https://developers.openai.com/codex/plugins), and usable in any other
+SKILL.md-compatible agent (e.g. [Kimi Code](https://moonshotai.github.io/kimi-cli/)).
 
 ## Skills
 
@@ -49,6 +50,8 @@ scales and the quality gate. (Foundation → `creative-direction` / `design-gene
 
 ## Install
 
+### Claude Code
+
 ```text
 /plugin marketplace add norbertgodany/ng-design-skills
 /plugin install design-skills@ng-design-skills
@@ -57,6 +60,34 @@ scales and the quality gate. (Foundation → `creative-direction` / `design-gene
 Once installed, the skills load on demand and appear namespaced, e.g.
 `design-skills:design-generation`. Claude invokes them automatically when a task matches a
 skill's description; you can also invoke one explicitly with `/design-skills:design-generation`.
+
+### ChatGPT / Codex
+
+```text
+codex plugin marketplace add norbertgodany/ng-design-skills
+codex plugin add design-skills@ng-design-skills
+```
+
+(Or browse with `/plugins` inside Codex after adding the marketplace.) The plugin manifest is
+`.codex-plugin/plugin.json`; the marketplace catalog is `.agents/plugins/marketplace.json`.
+Skills work in Codex CLI, the ChatGPT desktop app, and the IDE extension.
+
+### Kimi Code
+
+Kimi has no skills-plugin format; it auto-discovers Claude/Codex-style skill folders instead.
+Clone the repo and point Kimi at its `skills/` directory (updates are then just `git pull`):
+
+```text
+git clone https://github.com/norbertgodany/ng-design-skills
+```
+
+Then add the clone's `skills/` path to `extra_skill_dirs` in your Kimi config (or launch with
+`--skills-dir <path>/ng-design-skills/skills`). Alternatively, copy or symlink the skill
+folders into `~/.kimi/skills/`.
+
+Note: the `design-critic` **subagent** is Claude Code-only. On other agents the critique step
+degrades gracefully — `design-system-conventions` already specifies running the
+`design-critique` rubric inline when subagents aren't available.
 
 ## Model & effort policy
 
@@ -80,16 +111,21 @@ skill's description; you can also invoke one explicitly with `/design-skills:des
 2. Keep it lean: SKILL.md stays under ~120 lines; move detail into on-demand reference files
    in the skill folder (the `qa.md` / `anti-slop.md` pattern). Only the `description` is
    always in context, so it must carry the "when to use" signal on its own.
-3. Bump `version` in both `.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json`,
-   and add a `CHANGELOG.md` entry.
+3. Bump `version` in `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, and
+   `.codex-plugin/plugin.json` (all three stay in lockstep), and add a `CHANGELOG.md` entry.
 4. Commit and push. Installed users update with `/plugin marketplace update ng-design-skills`.
 
 ## Layout
 
 ```text
 .claude-plugin/
-  plugin.json        # plugin manifest
-  marketplace.json   # marketplace listing this plugin (source ".")
+  plugin.json        # Claude Code plugin manifest
+  marketplace.json   # Claude Code marketplace listing this plugin (source ".")
+.codex-plugin/
+  plugin.json        # Codex / ChatGPT plugin manifest
+.agents/
+  plugins/
+    marketplace.json # Codex marketplace catalog listing this plugin
 agents/
   design-critic.md   # independent adversarial reviewer (runs design-critique)
 scripts/

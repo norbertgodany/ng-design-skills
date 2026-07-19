@@ -1,7 +1,22 @@
 # Changelog
 
-Versions are bumped in both `.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json`;
-users update with `/plugin marketplace update ng-design-skills`.
+Versions are bumped in `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`, and
+`.codex-plugin/plugin.json`; users update with `/plugin marketplace update ng-design-skills`
+(Claude Code) or `codex plugin marketplace upgrade` (Codex).
+
+## 0.11.0 — 2026-07-19
+
+Cross-agent packaging: Codex/ChatGPT plugin + Kimi Code install docs.
+
+- **Codex / ChatGPT plugin**: `.codex-plugin/plugin.json` manifest and
+  `.agents/plugins/marketplace.json` catalog — install with
+  `codex plugin marketplace add norbertgodany/ng-design-skills` then
+  `codex plugin add design-skills@ng-design-skills`. Same `skills/` folder serves both
+  plugin systems.
+- **Kimi Code**: documented install via `extra_skill_dirs` / `--skills-dir` (Kimi has no
+  skills-plugin format; it auto-discovers Claude/Codex-style skill folders).
+- No skill-body changes — bodies were already tool-agnostic; the `design-critic` subagent
+  remains Claude Code-only, with the documented inline-critique fallback elsewhere.
 
 ## 0.10.0 — 2026-07-08
 
