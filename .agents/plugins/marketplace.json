@@ -1,0 +1,12 @@
+{
+  "name": "ng-design-skills",
+  "interface": { "displayName": "Norbert's design skills" },
+  "plugins": [
+    {
+      "name": "design-skills",
+      "source": { "source": "local", "path": "./" },
+      "policy": { "installation": "AVAILABLE" },
+      "category": "Productivity"
+    }
+  ]
+}
